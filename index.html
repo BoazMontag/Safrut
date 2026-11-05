@@ -1,0 +1,1017 @@
+<title>חזרה לספרות יב10</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Assistant:wght@400;600;700&family=Karantina:wght@700&display=swap">
+<style>
+/* Layout: an exam notebook. Lined paper, blue pen ink (the exam is written in blue pen), red margin rule for warnings. Sticky tab bar, single reading column. */
+:root{
+  --paper:#f6f8fc; --sheet:#ffffff; --line:#dfe5f1; --ink:#16213d; --muted:#5a6684;
+  --pen:#2340b8; --pen-soft:#e6ebfb; --margin:#c8344b; --margin-soft:#fbe9ec;
+  --good:#16794a; --good-soft:#e2f4ea; --warn:#9a6200; --warn-soft:#fdf1d8;
+  --f-display:"Frank Ruhl Libre","David Libre",Georgia,serif;
+  --f-body:"Assistant","Segoe UI",Arial,sans-serif;
+  --f-hand:"Karantina","Assistant",sans-serif;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0e1324; --sheet:#151c33; --line:#26304d; --ink:#e4e9f7; --muted:#9aa6c4;
+  --pen:#8fa6ff; --pen-soft:#1f2a50; --margin:#ff7d8f; --margin-soft:#3a1c26;
+  --good:#5fd39a; --good-soft:#17332a; --warn:#f0bb5c; --warn-soft:#352a14; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0e1324; --sheet:#151c33; --line:#26304d; --ink:#e4e9f7; --muted:#9aa6c4;
+  --pen:#8fa6ff; --pen-soft:#1f2a50; --margin:#ff7d8f; --margin-soft:#3a1c26;
+  --good:#5fd39a; --good-soft:#17332a; --warn:#f0bb5c; --warn-soft:#352a14; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.65;direction:rtl}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--sheet)}
+a{color:var(--pen)}
+.wrap{max-width:860px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.top{background:var(--sheet);border-bottom:1px solid var(--line)}
+header.top .wrap{padding-block:22px 14px;display:flex;flex-wrap:wrap;gap:12px 24px;align-items:end;justify-content:space-between}
+h1{font-family:var(--f-display);font-weight:900;font-size:clamp(28px,6vw,42px);line-height:1.1;margin:0;text-wrap:balance}
+h1 small{display:block;font-family:var(--f-body);font-weight:600;font-size:15px;color:var(--muted);margin-top:6px}
+.count{font-family:var(--f-hand);color:var(--margin);font-size:44px;line-height:1;text-align:center}
+.count span{display:block;font-family:var(--f-body);font-size:13px;color:var(--muted);font-weight:600}
+nav.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--sheet);border-bottom:1px solid var(--line)}
+nav.tabs .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+nav.tabs button{flex:0 0 auto;font:inherit;font-weight:600;font-size:15px;background:none;border:0;color:var(--muted);padding:12px 12px 10px;border-bottom:3px solid transparent;cursor:pointer}
+nav.tabs button[aria-selected="true"]{color:var(--pen);border-bottom-color:var(--pen)}
+nav.tabs button:focus-visible,button:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--pen);outline-offset:2px}
+main .wrap{padding-block:24px 64px}
+section.view{display:grid;gap:22px}
+h2{font-family:var(--f-display);font-weight:700;font-size:28px;margin:0;line-height:1.2;text-wrap:balance}
+h3{font-family:var(--f-display);font-weight:700;font-size:21px;margin:0 0 6px;text-wrap:balance}
+h4{font-size:16px;margin:14px 0 4px;color:var(--pen)}
+p{margin:0 0 10px}
+.lede{color:var(--muted);max-width:65ch;margin:0}
+.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:var(--r);padding:18px 18px 16px;position:relative;min-width:0}
+.ruled{background-image:linear-gradient(var(--sheet),var(--sheet)),repeating-linear-gradient(to bottom,transparent 0 27px,var(--line) 27px 28px)}
+.marginal{border-inline-start:3px solid var(--margin);padding-inline-start:14px;background:var(--margin-soft);border-radius:0 var(--r) var(--r) 0;padding-block:12px}
+.marginal strong{color:var(--margin)}
+.inkbox{background:var(--pen-soft);border-radius:var(--r);padding:14px 16px}
+ul,ol{margin:0 0 8px;padding-inline-start:22px}
+li{margin-bottom:4px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:16px}
+.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.stat{background:var(--sheet);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px}
+.stat b{display:block;font-family:var(--f-display);font-size:18px}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-top:8px}
+.bar i{display:block;height:100%;background:var(--pen);width:0;transition:width .4s}
+.stat small{color:var(--muted);font-variant-numeric:tabular-nums}
+.btn{font:inherit;font-weight:600;border-radius:8px;border:1px solid var(--pen);background:var(--pen);color:var(--sheet);padding:8px 16px;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--pen)}
+.btn:disabled{opacity:.5;cursor:default}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:inherit;font-size:15px;font-weight:600;border:1px solid var(--line);background:var(--sheet);color:var(--ink);border-radius:999px;padding:5px 14px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--pen);color:var(--sheet);border-color:var(--pen)}
+details{border-top:1px solid var(--line);padding-block:10px}
+details:first-of-type{border-top:0}
+summary{cursor:pointer;font-weight:700;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:8px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--pen);font-weight:700}
+details[open]>summary::after{content:"–"}
+details>div{padding-top:8px}
+.tag{display:inline-block;font-size:13px;font-weight:700;color:var(--pen);background:var(--pen-soft);border-radius:4px;padding:1px 8px;margin-inline-end:6px}
+.quote{font-family:var(--f-display);font-size:17px;border-inline-start:2px solid var(--pen);padding-inline-start:10px;margin:6px 0}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:start;vertical-align:top}
+th{background:var(--pen-soft)}
+.tscroll{overflow-x:auto}
+/* plan */
+.day{display:grid;gap:6px}
+.check{display:flex;gap:10px;align-items:flex-start;cursor:pointer;padding:4px 0}
+.check input{margin-top:6px;width:18px;height:18px;accent-color:var(--pen);flex:0 0 auto}
+.check.done span{text-decoration:line-through;color:var(--muted)}
+/* flashcards */
+.card-stage{perspective:1200px}
+.flash{width:100%;min-height:240px;border:1px solid var(--line);border-radius:14px;background:var(--sheet);cursor:pointer;display:grid;place-items:center;text-align:center;padding:28px 22px;font:inherit;color:var(--ink);position:relative}
+.flash .face-label{position:absolute;top:10px;inset-inline-start:14px;font-size:13px;color:var(--muted);font-weight:600}
+.flash .front{font-family:var(--f-display);font-size:clamp(24px,5vw,34px);font-weight:700}
+.flash .back{font-size:18px;max-width:58ch}
+.flash.flipped{background:var(--pen-soft)}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+/* quiz */
+.opts{display:grid;gap:8px;margin-top:10px}
+.opt{font:inherit;text-align:start;background:var(--sheet);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:10px 14px;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--pen)}
+.opt.right{background:var(--good-soft);border-color:var(--good);color:var(--ink)}
+.opt.wrong{background:var(--margin-soft);border-color:var(--margin)}
+.opt:disabled{cursor:default}
+.explain{margin-top:12px;padding:10px 14px;border-radius:8px;background:var(--pen-soft)}
+.qmeta{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+.qtext{font-family:var(--f-display);font-size:21px;font-weight:700;line-height:1.4}
+/* practice */
+select,textarea{font:inherit;color:var(--ink);background:var(--sheet);border:1px solid var(--line);border-radius:8px;padding:8px 10px;width:100%}
+textarea{min-height:320px;line-height:28px;background-image:repeating-linear-gradient(to bottom,transparent 0 27px,var(--line) 27px 28px);background-attachment:local;padding-top:2px;resize:vertical}
+.timer{font-family:var(--f-hand);font-size:36px;color:var(--pen);font-variant-numeric:tabular-nums;line-height:1}
+.feedback{white-space:pre-wrap}
+.muted{color:var(--muted)}
+.small{font-size:14px}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <h1>חזרה למבחן בספרות<small>יב10 · אנטיגונה + יגון, צפירה, האדונית והרוכל · יום ראשון 8.11</small></h1>
+    <div class="count" id="countdown" aria-live="polite">–<span>ימים למבחן</span></div>
+  </div>
+</header>
+<nav class="tabs" aria-label="חלקי הממשק">
+  <div class="wrap" role="tablist">
+    <button role="tab" data-view="exam">המבחן</button>
+    <button role="tab" data-view="plan">תוכנית לימוד</button>
+    <button role="tab" data-view="works">סיכומים</button>
+    <button role="tab" data-view="cards">כרטיסיות</button>
+    <button role="tab" data-view="quiz">בוחן</button>
+    <button role="tab" data-view="practice">שאלות בגרות</button>
+  </div>
+</nav>
+
+<main><div class="wrap">
+
+<!-- EXAM -->
+<section class="view" id="v-exam">
+  <div>
+    <h2>מה יהיה במבחן</h2>
+    <p class="lede">לפי ההודעה של ענבר מ־29.10. המבחן הוא חלק מציון ההגשה לבגרות (שאלון 8281).</p>
+  </div>
+  <div class="grid2">
+    <div class="sheet">
+      <h3>פרק א׳ · מחזה</h3>
+      <p><b>אנטיגונה</b> / סופוקלס</p>
+      <p>שתי שאלות, עונים על <b>אחת</b>. בבחינה יש גם מחזה מודרני. סמנו עליו X כי לא למדנו אותו.</p>
+    </div>
+    <div class="sheet">
+      <h3>פרק ב׳ · סיפור קצר</h3>
+      <p><b>יגון</b> / צ׳כוב · <b>צפירה</b> / אתגר קרת · <b>האדונית והרוכל</b> / ש״י עגנון</p>
+      <p>שתי שאלות, עונים על <b>אחת</b>. השאלות כלליות ("סיפור קצר שלמדת"), אז מספיק לשלוט היטב בסיפור אחד.</p>
+    </div>
+  </div>
+  <div class="stat-row" id="progress-tiles"></div>
+
+  <div class="sheet ruled">
+    <h3>איך כותבים תשובה (מהמצגת של ענבר)</h3>
+    <h4>1. מפענחים את השאלה</h4>
+    <ul>
+      <li>מרקר אחד על <b>מילות הוראה</b>: הסבירו, תארו, הדגימו, נמקו (מה עליי לעשות).</li>
+      <li>מרקר שני על <b>מילות שאלה</b>: כיצד, מהו, מדוע, האם (מה מבקשים ממני).</li>
+      <li>מרקר שלישי על <b>נושא השאלה</b>. אם יש מספר ("שני אמצעים"), רושמים מעליו את הספרה.</li>
+    </ul>
+    <h4>2. כותרת</h4>
+    <p>שם הפרק ומספר השאלה (למשל "מחזה קלאסי, שאלה מספר 1"). כל תשובה מתחילה בעמוד חדש.</p>
+    <h4>3. פתיחה (4–5 שורות)</h4>
+    <p>שם היצירה, שם היוצר, נושא היצירה, כמה משפטים על התוכן, התייחסות לסיום ושמות הדמויות הראשיות. משתמשים במילים מתוך השאלה. <b>לא כותבים את כל התקציר.</b></p>
+    <h4>4. גוף התשובה</h4>
+    <p>עונים לפי הסדר של השאלה. כל טענה בפסקה נפרדת עם הסבר ודוגמה מהיצירה במילים שלכם. מוסיפים אמצעים אמנותיים גם אם לא ביקשו. משתמשים במילות קישור: כמו כן, לפיכך, לעומת זאת, יתרה מזאת.</p>
+    <h4>5. סיום</h4>
+    <p>לא חובה. אפשר משפט או שניים לסיכום. אורך כל תשובה: כשני עמודים.</p>
+  </div>
+
+  <div class="marginal">
+    <p><strong>אסור:</strong></p>
+    <ul>
+      <li>למספר סעיפים או לכתוב רשימה או טבלה. כותבים בפסקאות: "האמצעי האמנותי הראשון הוא…, האמצעי השני הוא…".</li>
+      <li>לחבר בין סעיפים כשהשאלה מחולקת לא׳ וב׳. עונים על כל סעיף בנפרד.</li>
+      <li>לסכם את העלילה בלי לקשור לשאלה. "לא סתם סיכום, תאבדו הרבה ניקוד!"</li>
+      <li>סלנג. וגם לא לבלבל ז׳אנרים: "במחזה…" לאנטיגונה, "בסיפור…" לסיפורים.</li>
+    </ul>
+  </div>
+  <div class="inkbox">
+    <p><b>מילים נרדפות שחוזרות בשאלות</b></p>
+    <p>אמצעים רטוריים = דרכי עיצוב = "כיצד הדבר מעוצב" = <b>אמצעים אמנותיים</b> (האנשה, דימוי, מוטיב, רמז מטרים, אנלוגיה, ניגוד, אירוניה…).<br>
+    השקפת עולם = נושא = מסר = <b>משמעות</b>.</p>
+  </div>
+  <div class="sheet">
+    <h3>אסטרטגיה ל־3 ימים</h3>
+    <p><b>אנטיגונה היא חובה.</b> שתי השאלות בפרק הראשון יהיו עליה. לכן היא מקבלת את רוב הזמן.</p>
+    <p><b>בסיפורים: סיפור עיקרי אחד וסיפור גיבוי אחד.</b> כדאי לבחור את <b>יגון</b> כסיפור עיקרי. במצגת של ענבר יש לו שלוש תשובות לדוגמה, והוא מתאים כמעט לכל שאלה כללית: ביקורת חברתית, מוטיב, נקודת מפנה, סיום, פתיחה, אנלוגיה. הסיפור השני (<b>צפירה</b> או <b>האדונית והרוכל</b>) הוא גיבוי למקרה שהשאלה לא מתאימה ליגון.</p>
+  </div>
+</section>
+
+<!-- PLAN -->
+<section class="view" id="v-plan" hidden>
+  <div>
+    <h2>תוכנית לימוד</h2>
+    <p class="lede">סמנו מה עשיתם. הסימונים נשמרים בדפדפן הזה.</p>
+  </div>
+  <div id="plan-list" class="grid2"></div>
+  <button class="btn ghost" id="plan-reset" style="justify-self:start">איפוס הסימונים</button>
+</section>
+
+<!-- WORKS -->
+<section class="view" id="v-works" hidden>
+  <div>
+    <h2>סיכומי היצירות</h2>
+    <p class="lede">סיכום של המצגות והסיכומים ששלחה ענבר. אצל אנטיגונה: החומרים שלה לא נכללו בייצוא של הצ׳אט, ולכן הסיכום מבוסס על המחזה עצמו. כדאי להשוות לטבלה המסכמת שלה ולחזרה בשיעור.</p>
+  </div>
+  <div class="chips" id="work-chips" role="group" aria-label="בחירת יצירה"></div>
+  <div id="work-body"></div>
+</section>
+
+<!-- CARDS -->
+<section class="view" id="v-cards" hidden>
+  <div>
+    <h2>כרטיסיות</h2>
+    <p class="lede">לחצו על הכרטיס כדי להפוך אותו, וסמנו אם ידעתם. כרטיס שסימנתם "לא ידעתי" יחזור שוב.</p>
+  </div>
+  <div class="chips" id="card-chips" role="group" aria-label="סינון כרטיסיות"></div>
+  <div class="card-stage"><button class="flash" id="flash" aria-live="polite"><span class="face-label" id="flash-label"></span><span id="flash-text"></span></button></div>
+  <div class="row">
+    <div class="chips">
+      <button class="btn ghost" id="card-no">לא ידעתי</button>
+      <button class="btn" id="card-yes">ידעתי ✓</button>
+    </div>
+    <span class="qmeta" id="card-meta"></span>
+  </div>
+  <button class="btn ghost small" id="card-reset" style="justify-self:start">איפוס הכרטיסיות</button>
+</section>
+
+<!-- QUIZ -->
+<section class="view" id="v-quiz" hidden>
+  <div>
+    <h2>בוחן אמריקאי</h2>
+    <p class="lede">בדיקה מהירה של פרטים. המבחן האמיתי הוא חיבור, אבל אי אפשר לכתוב תשובה טובה בלי לדעת את הפרטים האלה.</p>
+  </div>
+  <div class="chips" id="quiz-chips" role="group" aria-label="בחירת יצירה לבוחן"></div>
+  <div class="sheet" id="quiz-box"></div>
+</section>
+
+<!-- PRACTICE -->
+<section class="view" id="v-practice" hidden>
+  <div>
+    <h2>שאלות בגרות לתרגול</h2>
+    <p class="lede">בחרו שאלה וכתבו תשובה מלאה עם טיימר. אחר כך פתחו את שלד התשובה ובדקו מה חסר לכם. הטיוטה נשמרת בדפדפן.</p>
+  </div>
+  <label class="small muted" for="pq-select">שאלה</label>
+  <select id="pq-select"></select>
+  <div class="sheet" id="pq-box"></div>
+  <div class="row">
+    <div class="timer" id="timer">45:00</div>
+    <div class="chips">
+      <button class="btn ghost" id="timer-btn">התחלת טיימר</button>
+      <button class="btn ghost" id="timer-reset">איפוס</button>
+    </div>
+  </div>
+  <label class="small muted" for="pq-answer">התשובה שלכם</label>
+  <textarea id="pq-answer" placeholder="מתחילים בפתיחה: שם היצירה, שם היוצר, הנושא, התוכן והסיום…"></textarea>
+  <div class="row">
+    <span class="qmeta" id="wordcount">0 מילים</span>
+    <div class="chips">
+      <button class="btn ghost" id="pq-reveal">הצגת שלד התשובה</button>
+      <button class="btn" id="pq-ai" hidden>משוב מ־Claude</button>
+    </div>
+  </div>
+  <div class="sheet" id="pq-skeleton" hidden></div>
+  <div class="sheet" id="pq-feedback" hidden><h3>משוב</h3><div class="feedback" id="pq-feedback-text"></div></div>
+</section>
+
+</div></main>
+
+<script>
+// ---------- storage helpers ----------
+const store = {
+  get(k, d){ try{ const v = localStorage.getItem('safrut:'+k); return v ? JSON.parse(v) : d; }catch(e){ return d; } },
+  set(k, v){ try{ localStorage.setItem('safrut:'+k, JSON.stringify(v)); }catch(e){} }
+};
+const $ = s => document.querySelector(s);
+const el = (tag, attrs={}, html='') => { const e = document.createElement(tag); for(const k in attrs) e.setAttribute(k, attrs[k]); if(html) e.innerHTML = html; return e; };
+
+const WORKS = {
+  ant:{name:`אנטיגונה`, by:`סופוקלס`, kind:`מחזה`},
+  yag:{name:`יגון`, by:`אנטון צ׳כוב`, kind:`סיפור`},
+  tsf:{name:`צפירה`, by:`אתגר קרת`, kind:`סיפור`},
+  adn:{name:`האדונית והרוכל`, by:`ש״י עגנון`, kind:`סיפור`}
+};
+
+// ---------- summaries ----------
+const SUMMARY = {
+ant: `
+<div class="sheet">
+<h3>אנטיגונה / סופוקלס</h3>
+<p class="muted small">טרגדיה יוונית קלאסית, המאה ה־5 לפני הספירה (אתונה)</p>
+<details open><summary>רקע: שושלת אדיפוס</summary><div>
+<p>אדיפוס, מלך תביי, הרג את אביו ונשא את אמו יוקסטה בלי לדעת. הוא עיוור את עצמו, ויוקסטה התאבדה. ארבעת ילדיו: <b>אטאוקלס, פולינקס, אנטיגונה ואיסמנה</b>. האחים הסכימו למלוך לסירוגין, אבל אטאוקלס סירב לפנות את הכס. פולינקס הביא צבא זר מארגוס ותקף את תביי. שני האחים הרגו זה את זה בקרב. <b>קראון</b>, אחי יוקסטה ודודם של הילדים, הפך למלך.</p>
+</div></details>
+<details open><summary>עלילה לפי שלבים</summary><div>
+<ol>
+<li><b>פרולוג:</b> אנטיגונה מספרת לאיסמנה על צו קראון: אטאוקלס ייקבר בכבוד, ופולינקס "הבוגד" יושאר מחוץ לחומות לטרף הכלבים והעופות. מי שיקבור אותו יומת. אנטיגונה מחליטה לקבור את אחיה. איסמנה מסרבת ("נשים אנחנו, לא נילחם בגברים"), ואנטיגונה דוחה אותה בבוז.</li>
+<li><b>פרודוס (שיר הכניסה של המקהלה):</b> זקני תביי חוגגים את הניצחון על ארגוס.</li>
+<li><b>קראון נואם בפני הזקנים:</b> טובת המדינה מעל לכול, ומי שבוגד במולדת אינו חבר. הוא מודיע על הצו.</li>
+<li><b>השומר</b> (דמות כמעט קומית) מדווח שמישהו פיזר עפר על הגופה. המקהלה רומזת שאולי זה מעשה האלים. קראון זועם וחושד שהשומרים שוחדו.</li>
+<li><b>סטסימון ראשון, "שיר האדם":</b> "רבים הנפלאות, ואין נפלא מן האדם". האדם שולט בים, באדמה ובחיות, אבל רק מי שמכבד את חוקי הארץ ואת משפט האלים יצליח.</li>
+<li><b>העימות בין אנטיגונה לקראון:</b> אנטיגונה נתפסת בניסיון השני. היא אינה מכחישה: צו של אדם אינו גובר על <b>החוקים הלא־כתובים של האלים</b>. "לא לשנוא נולדתי, אלא לאהוב." קראון: אם היא תנצח, "אני לא גבר, היא הגבר". איסמנה מבקשת לשתף באשמה, ואנטיגונה מסרבת.</li>
+<li><b>העימות בין קראון להיימון:</b> היימון, בנו של קראון וארוסה של אנטיגונה, מנסה לשכנע אותו בעדינות: העם מצדד באנטיגונה, ועץ שאינו מתכופף נשבר. קראון מתבצר: "האם העיר תאמר לי איך למלוך?", "כל עוד אני חי, לא תמשול בי אישה". היימון יוצא בכעס.</li>
+<li><b>גזר הדין:</b> אנטיגונה תיכלא חיה במערה, עם מעט מזון כדי שהעיר לא תיטמא בדמה.</li>
+<li><b>קינת אנטיגונה (קומוס):</b> היא מתאבלת על מותה בלי חתונה ובלי ילדים, משווה את עצמה לניובה ומרגישה נטושה גם בידי האלים. כאן נחשף צדה האנושי.</li>
+<li><b>טרסיאס, הנביא העיוור:</b> העופות והקורבנות מראים שהאלים זועמים בגלל הגופה הלא־קבורה. קראון מאשים אותו שקיבל שוחד. טרסיאס מנבא שקראון ישלם "בגופה מבשרו", כלומר במות בנו.</li>
+<li><b>מפנה (פריפטיה):</b> קראון נבהל ובעצת המקהלה ממהר לתקן. קודם הוא קובר את פולינקס ורק אחר כך הולך לשחרר את אנטיגונה. <b>מאוחר מדי.</b></li>
+<li><b>אקסודוס, דברי השליח:</b> אנטיגונה תלתה את עצמה במערה. היימון חיבק את גופתה, ירק לעבר אביו, ניסה לתקוף אותו בחרב ואז דקר את עצמו. <b>אאורידיקה</b>, אשת קראון, שומעת, יוצאת בשתיקה ומתאבדת כשהיא מקללת את קראון.</li>
+<li><b>סיום:</b> קראון חוזר נושא את גופת בנו ומודה באשמתו (<b>אנגנוריזיס</b>, הכרה): "אני הרגתי אותך, בני". המקהלה מסכמת: התבונה היא ראש האושר, ואין לחטוא כלפי האלים. דברי רהב של גאים מביאים עליהם מכות קשות, וכך הם לומדים חוכמה לעת זקנה.</li>
+</ol></div></details>
+<details><summary>הקונפליקט המרכזי</summary><div>
+<table><tr><th></th><th>אנטיגונה</th><th>קראון</th></tr>
+<tr><td>מייצגת/מייצג</td><td>חוק האלים, המשפחה, הדת, הפרט, המצפון</td><td>חוק המלך, המדינה, הסדר, הכלל, הציות</td></tr>
+<tr><td>הטענה</td><td>חובה לקבור את המתים, ואין צו אנושי שגובר על כך</td><td>בוגד לא יקבל כבוד, ושלום העיר דורש ציות</td></tr>
+<tr><td>הצדק שבעמדה</td><td>נאמנות לאח ולאלים</td><td>מלך חדש שצריך יציבות אחרי מלחמה</td></tr>
+<tr><td>ההיבריס</td><td>שחצנות כלפי קראון וכלפי איסמנה, חיפוש תהילה ("מה תהילה גדולה מזו"), אינה מוכנה לשום פשרה, דוחה את עזרת אחותה</td><td>מציב את עצמו מעל האלים, לא מקשיב (להיימון, לעם, לטרסיאס), מתייחס לעיר כרכושו, מזלזל בנשים, מאשים כל אחד בשוחד</td></tr>
+<tr><td>העונש</td><td>מוות בקבר חי</td><td>מות בנו ואשתו. נשאר חי ושבור, וזה עונש קשה עוד יותר</td></tr></table>
+<p style="margin-top:10px">זהו <b>קונפליקט טרגי</b>: לשני הצדדים יש צדק חלקי, וכל אחד מהם נאחז בעמדתו עד הקצה. שני הגיבורים חוטאים בהיבריס.</p>
+</div></details>
+<details><summary>דמויות</summary><div>
+<p><span class="tag">אנטיגונה</span>אמיצה, נחושה, נאמנה למשפחה ולאלים. גם עקשנית, גאה ובודדה. מוכנה למות ("אמות יפה"). בקינה היא מתגלה כנערה שחוששת למות בלי חתונה.</p>
+<p><span class="tag">קראון</span>מלך חדש וסמכותי שרואה בעצמו את המדינה. עקשן, חשדן ומזלזל בנשים ובצעירים. רק בסוף הוא נשבר ומכיר בטעותו. יש הרואים בו את הגיבור הטרגי האמיתי, כי הוא עובר מהפך והכרה.</p>
+<p><span class="tag">איסמנה</span><b>דמות ניגודית לאנטיגונה (אנלוגיה ניגודית)</b>: מתונה, פחדנית וצייתנית ("נשים אנחנו"). אחרי המעשה היא מוכנה לחלוק באשמה. מבליטה את אומץ ליבה ואת קיצוניותה של אנטיגונה.</p>
+<p><span class="tag">היימון</span>בן קראון וארוסה של אנטיגונה. מייצג את קול העם ואת הדור הצעיר. פותח בכבוד ובהיגיון, ועובר לכעס כשאביו מבזה אותו. מותו הוא העונש הראשון של קראון.</p>
+<p><span class="tag">טרסיאס</span>הנביא העיוור, שליח האלים. <b>אירוניה:</b> העיוור "רואה" את האמת, וקראון שרואה הוא עיוור לטעותו. הנבואה שלו מביאה למפנה.</p>
+<p><span class="tag">אאורידיקה</span>אשת קראון. מופיעה לרגע, שומעת על מות בנה, יוצאת בשתיקה ומתאבדת. היא העונש האחרון לקראון.</p>
+<p><span class="tag">השומר</span>פשוט, פחדן ומדבר בגלוי. מכניס הומור ומבליט את הפחד מקראון ואת עריצותו.</p>
+<p><span class="tag">המקהלה</span>זקני תביי. מגיבה, מעירה ושופטת. בתחילה היא נאמנה לקראון, אחר כך מהססת, ובסוף מייעצת לו להיכנע. היא מבטאת את קול החברה ואת המוסר, ומסכמת את הלקח.</p>
+</div></details>
+<details><summary>מושגי הטרגדיה</summary><div>
+<p><span class="tag">טרגדיה</span>מחזה רציני שגיבורו נופל ממעמד רם לאסון בגלל פגם או טעות שבו. מעורר <b>חמלה ופחד</b> ומביא ל<b>קתרזיס</b>.</p>
+<p><span class="tag">גיבור טרגי</span>אדם ממעמד רם, לא צדיק גמור ולא רשע. נופל בגלל <b>המרטיה</b> (טעות טרגית), לרוב <b>היבריס</b>.</p>
+<p><span class="tag">היבריס</span>חטא הגאווה: האדם רואה את עצמו גדול מכפי שהוא ומתריס כנגד האלים או הגורל. עליו בא עונש (<b>נמסיס</b>).</p>
+<p><span class="tag">המרטיה</span>"החטא" או הטעות הטרגית שמובילה לאסון.</p>
+<p><span class="tag">פריפטיה</span>מהפך: תפנית חדה במצב הגיבור, מהצלחה לכישלון. אצל קראון: אחרי נבואת טרסיאס.</p>
+<p><span class="tag">אנגנוריזיס</span>הכרה: הרגע שבו הגיבור מבין את טעותו. קראון בסוף: "אני הרגתי אותך".</p>
+<p><span class="tag">קתרזיס</span>זיכוך: הצופה חווה חמלה ופחד ומשתחרר מהם, ויוצא נקי ומוסר־השכל.</p>
+<p><span class="tag">אירוניה טרגית/דרמטית</span>הצופה יודע יותר מהדמות. למשל קראון בטוח שהוא שומר על העיר, אבל מביא עליה זעם אלים. טרסיאס העיוור רואה וקראון עיוור.</p>
+<p><span class="tag">אחדות הזמן, המקום והעלילה</span>יממה אחת, מקום אחד (לפני ארמון תביי) ועלילה אחת בלי עלילות משנה.</p>
+<p><span class="tag">מבנה</span>פרולוג, פרודוס, אפיזודות שבהן מתרחשת העלילה, סטסימונים (שירי מקהלה ביניהן), קומוס (קינה) ואקסודוס (סיום).</p>
+<p><span class="tag">שליח</span>האלימות אינה מוצגת על הבמה אלא מסופרת בפי שליח.</p>
+</div></details>
+<details><summary>מסרים מרכזיים</summary><div>
+<ul><li>אין לאדם, גם לא למלך, להציב את עצמו מעל חוקי האלים והמוסר.</li>
+<li>קיצוניות ועקשנות, משני הצדדים, מובילות לאסון. חשוב להקשיב ולהתגמש ("עץ שאינו מתכופף נשבר").</li>
+<li>הגאווה מביאה לעונש. החוכמה באה מאוחר, דרך הסבל.</li>
+<li>המתח בין הפרט למדינה, בין המצפון לחוק, נשאר רלוונטי גם היום.</li></ul>
+</div></details>
+<details><summary>פתיחה מוכנה (מהמצגת של ענבר)</summary><div>
+<p class="quote">המחזה הטרגי "אנטיגונה" מאת סופוקלס מתאר קונפליקט בין חוק האלים, לפיו יש לכבד את המתים ולקבור אותם, לבין חוק המלך, לפיו פולינקס לא ייקבר בשל בגידתו בעיר תביי. הדמויות הראשיות במחזה הן אנטיגונה, שמייצגת את חוק האלים, וקראון, המייצג את חוק המלך. שני הגיבורים, קראון ואנטיגונה, חוטאים בחטא ההיבריס, הוא חטא הגאווה. לאורך המחזה אנו נחשפים לסיפור של שושלת אדיפוס עד לסופה הטרגי.</p>
+</div></details>
+<p class="small muted" style="margin-top:10px">ענבר שלחה גם קישור לצפייה בהצגה: <a href="https://www.youtube.com/watch?v=ieseesj-13k" target="_blank" rel="noopener">אנטיגונה ביוטיוב</a></p>
+</div>`,
+
+yag: `
+<div class="sheet">
+<h3>יגון / אנטון צ׳כוב</h3>
+<p class="muted small">רוסיה, סוף המאה ה־19. "יגון" פירושו עצב כבד, צער, אבל.</p>
+<details open><summary>אקספוזיציה (מז״דא: מקום, זמן, דמויות, אווירה)</summary><div>
+<p><b>מקום:</b> רחוב במרכזה של עיר גדולה ברוסיה. <b>זמן:</b> בין ערביים, שקיעה, חורף. <b>דמויות:</b> יונה פוטאפוב העגלון וסוסתו. <b>אווירה:</b> קפואה. שלג, צבעים אפורים ולבנים.</p>
+<p>יונה יושב על הדוכן "לבן כרוח רפאים", כפוף ולא זז, והשלג נערם עליו. גם הסוסה הלבינה, עומדת בלי לזוז ושקועה בהרהורים. כמוהו היא נתלשה מהכפר ("מן המחרשה") אל העיר הזרה. בנו של יונה מת השבוע.</p>
+</div></details>
+<details open><summary>ארבעת המפגשים (הסיבוך)</summary><div>
+<ol>
+<li><b>איש הצבא:</b> פונה ליונה. יונה מבולבל, כמעט דורס עוברים ושבים ומקולל. הוא מצליח לומר רק "בני… מת השבוע". איש הצבא שואל ממה מת, אבל מיד מאיץ בו ואחר כך <b>עוצם עיניים</b> ונרדם.</li>
+<li><b>שלושה שיכורים</b> (אחד מהם גיבן): משלמים מעט (20 קופיקות), ויונה מסכים "ובלבד שיהיו נוסעים". השניים החזקים משפילים את הגיבן, והגיבן מתעלל ביונה. יונה צוחק, כי אפילו היחס המבזה מפיג את בדידותו. כשהוא מספר על בנו, הגיבן עונה "כולנו נמות" ומכה אותו בעורפו. יונה מברך אותם: "אדונים עליזים… תבוא עליכם ברכה". זו אירוניה.</li>
+<li><b>החצרן:</b> הפעם יונה יוזם ושואל "חביבי, מה השעה?". החצרן מגרש אותו. יונה מתייאש וחוזר לחצר העגלונים.</li>
+<li><b>העגלון הצעיר</b> בפונדק: קם לשתות מים. יונה מתחיל לספר, והצעיר מכסה את ראשו ונרדם. המספר מתערב: "כשם שגופו של אותו צעיר צמא היה למים, כך צמאה נפשו של יונה לשיחה".</li>
+</ol>
+<p>"לא משנה מאיזה מעמד, אף אחד לא מקשיב." המפגשים יורדים בהיררכיה, מאיש צבא עד עגלון כמותו, וכולם נכשלים.</p>
+</div></details>
+<details open><summary>הסיום: נקודת מפנה, שיא, התרה וסיום מאוחדים</summary><div>
+<p>יונה יוצא לאורווה ומדבר עם הסוסה: "אילו היה לך סייח והוא מת, הלא היית מצטערת?". הסוסה לועסת, נושפת על ידיו ו<b>עיניה בורקות</b>. יונה נסחף ומספר לה הכול, ורק כאן הוא מזכיר את שם בנו, <b>קוזמה יוניץ׳</b>. זה הדיאלוג הארוך בסיפור.</p>
+<p>סיום סגור וטרגי: יונה מוצא אוזן קשבת, אבל לא אנושית. אפשר לטעון שהסיום פתוח, כי החברה לא השתנתה. <b>"חברה בהמית מול בהמה אנושית."</b> זוהי סגירת מעגל: הסיפור נפתח באנלוגיה בין יונה לסוסה ונסגר בשיחה ביניהם.</p>
+</div></details>
+<details><summary>אמצעים אמנותיים</summary><div>
+<p><span class="tag">אנלוגיה ישירה</span>בין יונה לסוסה: שניהם לא זזים בשלג, שקועים בעצמם, תלושים מהכפר, "מושיטים את הצוואר", ושניהם רוצים הביתה (הסוסה דוהרת לפונדק). זה <b>רמז מטרים</b> לכך שרק הסוסה תקשיב.</p>
+<p><span class="tag">אנלוגיה ניגודית</span>בין יונה וסוסתו לבין העיר. וגם <b>ניגוד כפר מול עיר</b>: העיר סואנת, קרה ו"אורות מפלצתיים", מול הכפר הפשוט והחם.</p>
+<p><span class="tag">מוטיב העיניים</span>איש הצבא עוצם עיניים, והעגלון הצעיר מכסה את ראשו ונרדם: ניתוק התקשורת. לעומתם עיני הסוסה בורקות: הקשבה.</p>
+<p><span class="tag">מוטיב היגון והבדידות</span>חוזר בכל מפגש. כל ניסיון כושל מעמיק את המועקה.</p>
+<p><span class="tag">האנשה</span>של הסוסה. היא "שקועה בהרהורים", מקשיבה ומגיבה.</p>
+<p><span class="tag">דיאלוג</span>האמצעי המרכזי. כל דיאלוג מנסה לייצר תקשורת ונכשל. רק עם הסוסה נוצר דיאלוג אמיתי.</p>
+<p><span class="tag">תיאורי נוף וסביבה</span>שלג, חורף, ערב וקור יוצרים אווירה קפואה, בדיוק כמו החברה הקפואה.</p>
+<p><span class="tag">רמז מטרים</span>"הלבין כרוח רפאים", "סוסתו הלבינה": הדמיון ביניהם מרמז על הסוף.</p>
+<p><span class="tag">אירוניה</span>יונה מברך את השיכורים שהיכו אותו. ובגמגום מול בני אדם לעומת שטף הדיבור מול הסוסה.</p>
+<p><span class="tag">מספר</span>כל־יודע בגוף שלישי, וגם <b>מספר מתערב</b> שנוקט עמדה: "האם לא יימצא בין אלפי האנשים הללו גם אחד שיאות להקשיב לו?", וגם הדימוי של הצמא למים.</p>
+</div></details>
+<details><summary>אפיון יונה (אפיון עקיף)</summary><div>
+<ul><li><b>תיאור חיצוני:</b> כפוף, לבן מהשלג, לא נע ולא זז.</li>
+<li><b>אופן דיבור:</b> מגמגם ומתקשה לבטא את עצמו מול בני אדם. שוטף מול הסוסה.</li>
+<li><b>התנהגות:</b> מוכן לסבול השפלה ובלבד שלא יהיה לבד ושיקשיבו לו. מסכים למחיר נמוך.</li>
+<li><b>תיאורי סביבה:</b> הנוף הקפוא משקף את עולמו הפנימי.</li></ul>
+</div></details>
+<details><summary>נושא ומסר</summary><div>
+<p>בדידות האדם בחברה גדולה, עירונית ומנוכרת. יונה הוא סמל לכל אדם בודד. <b>ביקורת חברתית</b> על חברה אדישה לסבלו של הזולת, שבה החזק שולט והחלש מושפל. מסר אוניברסלי: קל יותר להתחבר לבעל חיים מאשר לבני אדם.</p>
+</div></details>
+<details><summary>פתיחה מוכנה (מהמצגת של ענבר)</summary><div>
+<p class="quote">הסיפור "יגון" מאת צ׳כוב מתאר את בדידות האדם בחברה, ויש בו ביקורת חברתית על חברה אדישה ומנוכרת לאדם הזקוק לה. הדמות הראשית בסיפור היא יונה העגלון, אשר איבד את בנו ומחפש אדם שאליו יוכל לפרוק את יגונו. במהלך הסיפור יונה מנסה ליצור קשר עם אנשים שונים, אך ללא הצלחה, ובסוף משוחח עם סוסתו ואיתה מצליח לפרוק. הסיפור מציג חברה בהמית מול בהמה אנושית.</p>
+</div></details>
+</div>`,
+
+tsf: `
+<div class="sheet">
+<h3>צפירה / אתגר קרת</h3>
+<p class="muted small">סיפור קצר עברי, שנות ה־80. קרת נולד ב־1967 לניצולי שואה. כתיבתו בשפה יומיומית וסלנג, עם ביקורת על החינוך הציוני ועל מוסכמות כמו הטקסים והצבא.</p>
+<details open><summary>עלילה</summary><div>
+<p><b>אקספוזיציה (יום השואה, אולם ההתעמלות):</b> אלי, המספר, יושב ליד סיוון ומתרגש כשידו נוגעת בג׳ינס שלה. סיוון מספרת בגאווה ששרון במבדקים לקומנדו הימי ושיקבל פרס "תלמיד מצטיין". גלעד לוקח אותה לשבת מאחור. הטקס משעמם: "דיקלמו את הקטעים הרגילים", ואיש עם סוודר בורדו מספר על אושוויץ. כולם אדישים.</p>
+<p>אחרי הטקס אלי רואה את <b>שולם השרת</b> בוכה על המדרגות: "גם אני הייתי בזונדרן קומנדו". אלי לא מבין את המושג וחושב שמדובר ביחידה צבאית. זו בורות.</p>
+<p><b>סיבוך:</b> בפלאפל, צורי ואביב (אוכלים בגסות) מספרים ששרון עבר את הראיון לשייטת, ושהוא וגלעד שתו בירות ו"עשו חארקות על האופניים של שולם, כמו ילדים קטנים". האופניים נעלמו. בבוקר אלי מספר למנהל. המנהל מבטיח שאף אחד לא יידע. ביום חמישי נכנס שוטר ומוציא את שרון וגלעד. רק מזהירים אותם. אבא של שרון קונה לשולם אופני ספורט. שולם מסרב בהתחלה ("הכי בריא ללכת ברגל") ולבסוף מקבל.</p>
+<p><b>ביום שני</b> סיוון מזהירה את אלי ששרון יודע שהוא הלשין, ושולחת אותו "לחור בגדר מאחורי הצריפים". זו מלכודת.</p>
+<p><b>שיא והתרה:</b> שרון וגלעד מחכים לו. שרון טוען שאלי קנאי, מוריד את ז׳קט העור ואת שעון הצלילה ומתכונן להכות. אלי: "אין לכם כבוד". פתאום נשמעת <b>צפירת יום הזיכרון</b>. השניים עומדים דום "כמו בובות בחלון ראווה", ואלי הולך משם. שרון מסנן "אנחנו עוד נזיין אותך" אך לא זז. "הצפירה עוטפת אותי במגן בלתי־נראה."</p>
+</div></details>
+<details open><summary>סיום</summary><div>
+<p><b>במובן הגלוי יש התרה:</b> אלי ניצל בזכות הצפירה. <b>במובן הסמוי אין התרה:</b> הסכסוך לא נפתר, ואלי כנראה יחטוף מכות בהזדמנות אחרת. זהו <b>סוף פתוח ואירוני</b>. הבריונים מכבדים את הצפירה אבל לא את האדם, ואלי המוסרי "מפר" את הדום.</p>
+</div></details>
+<details><summary>דמויות</summary><div>
+<p><span class="tag">אלי</span>המספר בגוף ראשון והדמות הראשית. <b>אנטי־גיבור</b>: "חנון", חלש גופנית, ביישן ומאוהב בסיוון. רגיש לסבל ומוסרי. היחיד שניגש לשולם, ומדווח על הגניבה. לא חכם במיוחד (לא מבין "זונדרקומנדו"). נחשב "מלשן".</p>
+<p><span class="tag">שרון</span>הצבר המושלם לכאורה: תלמיד מצטיין, ספורטאי, מתקבל לשייטת, חברתו היפה ביותר, משפחה אמידה (ז׳קט עור, שעון צלילה). בפועל שחצן, אלים, גונב ומתעלל בניצול שואה. "הישראלי המכוער". עומד בצפירה ובאותו זמן מקלל.</p>
+<p><span class="tag">סיוון</span>הנערה היפה, נהנית מתשומת הלב של הבנים. היא הפיתיון במלכודת.</p>
+<p><span class="tag">גלעד</span>"המשרת הנאמן" של שרון ושותף לבריונות. בצפירה הוא "כמו קולב בגדים מגודל".</p>
+<p><span class="tag">צורי ואביב</span>מאופיינים דרך אכילת הפלאפל הגסה. מעריצים את שרון.</p>
+<p><span class="tag">שולם</span>השרת, ניצול שואה, המבוגר היחיד. רזה, קטן, צנוע ופגוע. היה בזונדרקומנדו ונושא טראומה ובושה.</p>
+<p><span class="tag">המנהל</span>מבטיח סודיות, ומסתבר שלא שמר עליה. זו התנהגות לא הוגנת.</p>
+</div></details>
+<details><summary>אמצעים אמנותיים</summary><div>
+<p><span class="tag">מוטיב הצפירה</span>מופיע 3 פעמים: בשם הסיפור, ביום השואה (רק נרמזת) ובסיום, ביום הזיכרון. הצפירה מסמלת כבוד לנופלים, אבל בסיפור הכבוד חיצוני וריק. היא גם מצילה את אלי.</p>
+<p><span class="tag">מוטיב הקומנדו</span>שייטת 13 (גאווה, עילית, בחירה) מול הזונדרקומנדו (יהודים שנכפו להוציא גופות מתאי הגזים, בושה). הם עומדים ביחס הפוך של גאווה ובושה.</p>
+<p><span class="tag">אנלוגיות</span>(1) אלי ושולם: החולשה והמעמד השולי. (2) אנלוגיה ניגודית בין שולם לשרון: זונדרקומנדו מול קומנדו. (3) ה"הלשנה" של אלי מול השקר של סיוון. (4) המנהל שמפר הבטחה מול שרון וגלעד.</p>
+<p><span class="tag">דימויים ומטאפורה</span>"כמו בובות בחלון ראווה", "כמו קולב בגדים מגודל", "כמו ילד קטן שמנסה לחקות פוזה מסרט פעולה", "בובות שעווה", ומטאפורה: "הצפירה עוטפת אותי במגן בלתי־נראה". הבריונים מוקטנים ומגוחכים.</p>
+<p><span class="tag">אירוניה</span>הבריונים מכבדים את הטקס ולא את האדם. ה"מלשין" הוא המוסרי. ה"מצטיין" הוא גנב.</p>
+<p><span class="tag">ניגוד בעיצוב הדמויות</span>אלי, החלש והערכי, מול שרון, המקובל והאלים.</p>
+<p><span class="tag">נקודת התצפית</span>הסיפור מסופר מעיני אלי, האאוטסיידר, וכך הוא מוצג כדמות הראויה.</p>
+<p><span class="tag">בחירת הזמן</span>יום השואה ויום הזיכרון: היחס הריקני לימים הקדושים ביותר.</p>
+</div></details>
+<details><summary>נושא ומסר: ביקורת חברתית</summary><div>
+<ul><li>על חברה אלימה ומאצ׳ואיסטית שמעריצה "גיבורים" כמו שרון ומסתכלת על החיצוניות.</li>
+<li>על טקסים ריקים: עומדים בצפירה בלי להבין את משמעותה.</li>
+<li>על בורות לגבי השואה: "מה זה זונדרקומנדו?"</li>
+<li>המסר: דיווח על פשע אינו "הלשנה". יש בו אומץ, וכבוד פירושו אנושיות ועזרה לחלש.</li></ul>
+<p>דילמות שנשארות פתוחות: מה זו הלשנה? מה זה כבוד? האם להתחבר לחזקים או לעזור לחלש?</p>
+</div></details>
+<details><summary>פתיחה מוצעת</summary><div>
+<p class="quote">הסיפור "צפירה" מאת אתגר קרת מותח ביקורת על החברה הישראלית, המכבדת את הטקסים באופן חיצוני בלבד ומעריצה כוח ואלימות. הדמות הראשית והמספר היא אלי, תלמיד תיכון רגיש ושולי, המדווח למנהל על כך ששרון, התלמיד המצטיין והמועמד לשייטת, וחברו גלעד גנבו את אופניו של שולם השרת, ניצול שואה. בסיום, כששרון וגלעד עומדים להכות את אלי, נשמעת צפירת יום הזיכרון, הם נעמדים דום ואלי חומק מהם, אך הסכסוך נותר פתוח.</p>
+</div></details>
+</div>`,
+
+adn: `
+<div class="sheet">
+<h3>האדונית והרוכל / ש״י עגנון</h3>
+<p class="muted small">עגנון, חתן פרס נובל לספרות 1966. הסיפור נכתב בזמן מלחמת העולם השנייה (1942), כשהידיעות על השמדת היהודים מגיעות לארץ. זהו סיפור פנטסטי ואגדי, סיפור אימה על אישה ערפדית.</p>
+<details open><summary>עלילה</summary><div>
+<p><b>אקספוזיציה:</b> "רוכל אחד יהודי" מחזר על הפתחים ומגיע לבית בודד ביער, בית של ציידים עם קרניים על הקירות. הוא מתרפס ומציע לאדונית סחורה. היא מסרבת, ולבסוף קונה דווקא <b>סכין ציידים</b>. הוא יוצא, תועה ביער, רואה אור ו<b>חוזר לביתה</b> (יסוד אגדי, כמו עמי ותמי). הוא מבקש ללון, והיא נותנת לו לישון ברפת.</p>
+<p><b>התקרבות:</b> הוא מתקן את הגג והיא מבשלת לו. הוא עובר לחדר הכלים הישנים, מחמיא לה, ולבסוף ישן במיטת בעלה. הוא אוכל טריפה ("אם צלתה לו בשר בחמאה לא משך ידו"), לובש "בגדי חירות" ומתחבר לאנשי המקום. זו התבוללות. שמה <b>הלני</b>, ושמו <b>יוסף</b>.</p>
+<p><b>הסיבוך:</b> הוא מעולם לא רואה אותה אוכלת או שותה. היא עונה בהתחמקות: "דם אנשים אני שותה ובשר אדם אני אוכלת". על בעלה: "מה איכפת לך באיזו מיתה נהרג, אם חיה רעה אכלתהו או אם נשחט בסכין". מתברר שהיו לה כמה בעלים. "המרבה לשאול מעמיק לו שאול." היא מלגלגת עליו ("שמור את הפיקה שבגרגרתך"). היחסים מתערערים. הוא מחליט לעזוב, אבל איבריו "מתרשלים" והוא נשאר.</p>
+<p><b>החלום:</b> אחרי שהלני נתקלה באבן והצטלבה, יוסף חולם שתוקעים סכין בלבו (הלב הופך לאבן ולקרח) ושהכלבה נועצת שיניים בגרונו. הוא חוזר לישון בחדר הכלים, אבל עדיין לא עוזב.</p>
+<p><b>המפנה:</b> לילה אחד הוא רוצה לקרוא <b>קריאת שמע</b>. בחדר תלוי צלם, ולכן הוא יוצא לשלג. "אבי שבשמים, כמה נתרחקתי. אם איני חוזר מיד הריני אבוד."</p>
+<p><b>השיא:</b> כשהוא חוזר, המיטה מלאה חורים של סכין. הלני ניסתה לשחוט אותו ופצעה את עצמה. הוא משכיב אותה במיטה. היא נועצת שיניים בגרונו ומוצצת, ואז דוחפת אותו: "פוי מה קר אתה, דמך לא דם אלא מי קרח". הקור מהתפילה בחוץ הציל אותו.</p>
+<p><b>התרה וסיום:</b> הוא מטפל בה ומבשל לה, והיא מקיאה הכול. ביום החמישי היא מתה. האדמה קפואה, ולכן הוא קובר אותה בארון על הגג, והעופות אוכלים את גופתה. הוא לוקח את קופתו וחוזר לנדודיו.</p>
+</div></details>
+<details open><summary>סיום ומבנה מעגלי</summary><div>
+<p><b>סגור:</b> מערכת היחסים נגמרה. הרוכל ניצל, והאדונית בעצמה נהייתה טרף לעופות. <b>פתוח:</b> הרוכל לא למד דבר. הוא חוזר לאותה נקודה שממנה התחיל, ולא בטוח שלמד את הלקח.</p>
+<p><b>מבנה מעגלי:</b> היא שאכלה בשר בעליה נאכלת בידי העופות. חורף בתחילה ובסוף. הוא מתקן את הגג ואחר כך קובר בו אותה. הוא מכר לה את הסכין שבה ניסתה להרוג אותו. היא בישלה לו ובסוף הוא מבשל לה. בתחילה איבד את דרכו ובסוף מצא אותה, את הדת, אבל חזר לנדוד.</p>
+</div></details>
+<details><summary>אלגוריה: הרובד הגלוי והרובד הסמוי</summary><div>
+<p><b>הרובד הגלוי (הפרטי):</b> קשר רומנטי בין רוכל יהודי עני לאדונית גויה ועשירה, שנידון לכישלון. הוא מתאהב, מתמסר, מאבד את זהותו וכמעט נרצח.</p>
+<p><b>הרובד הסמוי (הלאומי):</b> <b>יוסף</b> מייצג את היהודים בגולה, שרוצים להתקרב לגויים ולהתבולל ומרגישים נחותים. <b>הלני</b> (הלניזם, תרבות יוון) מייצגת את עולם הגויים והנצרות, שמרגיש "אדון". ה"אור" שמושך אותו הוא הנצרות, וה"חושך" בדרכים הוא הגלות. הסכין מייצגת את היצר להרוג יהודים. <b>המסר:</b> אנטישמיות. ההתבוללות לא תציל, ורק החזרה לזהות היהודית מצילה. היהודים לא לומדים לקח וממשיכים לנדוד בין הגויים. יש שקוראים זאת כתגובה לשואה.</p>
+<p>ככל שיוסף מתקרב להלני הוא מתרחק מדתו, וככל שהם מתרחקים הוא מתקרב אל אלוהיו.</p>
+</div></details>
+<details><summary>אקטיביות ופסיביות (אנלוגיה ניגודית)</summary><div>
+<p><b>יוסף:</b> בהתחלה אקטיבי (משכנע, מוכר, מתקן את הגג). עם ההתקרבות הוא נעשה פסיבי: חי על חשבונה, לא מצליח לעזוב "עבר יום, יצא שבוע". בסוף הוא שוב אקטיבי: יוצא לקריאת שמע, מטפל בה ונשאר אנושי.</p>
+<p><b>הלני:</b> אקטיבית ושולטת לאורך כל הסיפור באמצעות הסוד שלה. בסיום היא עוברת הנמכה מאדם לחיה.</p>
+<p>מעבר המגורים מבטא את התהליך: מהרפת, למחסן, למיטת הבעל, ושוב למחסן.</p>
+</div></details>
+<details><summary>מוטיבים ואמצעים</summary><div>
+<p><span class="tag">מוטיב הסכין</span>מופיע 4 פעמים: הקנייה, ההתחמקות בשאלה על הבעל, החלום וניסיון הרצח. הוא מסמל את אופייה המסוכן, משמש רמז מטרים, יוצר אירוניה (הוא מכר לה את כלי הרצח) ותורם למבנה המעגלי.</p>
+<p><span class="tag">מוטיב הסעודה</span>מבטא את עזיבת המצוות (טריפה). היא לא אוכלת, וזה הסוד שלה. בסוף הוא מבשל לה והיא מקיאה: החייתיות שלה מול האנושיות שלו.</p>
+<p><span class="tag">מוטיב החיה</span>הלני מדומה לכלבה, נושכת ומוצצת דם, וגופתה נהיית נבלה לעופות. היא מכנה את יוסף בשמות חיות: נשר, חזיר, ברווז, עורב, פגר. בביתה תלויות קרני חיות.</p>
+<p><span class="tag">מוטיב הדרך</span>הוא תועה ומאבד את הדרך ואת זהותו. ברגע המשבר הוא מוצא את דרכו, את האמונה. "כמה נתרחקתי" היא משמעות כפולה: מרחק פיזי מהבית ומרחק רוחני מהיהדות. הדרך מייצגת את הנדודים של העם היהודי.</p>
+<p><span class="tag">אלוזיה מקראית: יוסף</span>אנלוגיה ניגודית. יוסף המקראי פותר חלומות, ויוסף שלנו עיוור לחלומו. יוסף המקראי עמד בפיתוי אשת פוטיפר, ויוסף שלנו התפתה. "טרוף טורף יוסף."</p>
+<p><span class="tag">הלני</span>הלנה היפה מהמיתולוגיה הייתה אחראית לחורבן טרויה. השם מרמז על פיתוי מסוכן.</p>
+<p><span class="tag">ניגודים בכותרת</span>אדונית מול רוכל: פער מעמדי (עשירה מול עני ונודד) ודתי (גויה מול יהודי).</p>
+<p><span class="tag">רמזים מטרימים</span>סכין הציידים, הקרניים, "אם חיה רעה אכלתהו או נשחט בסכין", "לא ראה אותה אוכלת", "דם אנשים אני שותה", "המרבה לשאול מעמיק לו שאול", החלום.</p>
+<p><span class="tag">החלום</span>מבטא פחדים לא מודעים (הצלב, הסכין, הכלבה) ודוחף אותו לאקטיביות.</p>
+<p><span class="tag">מספר</span>כל־יודע. מפזר רמזים ויוצר <b>פערי מידע ואירוניה</b> בין מה שיוסף מבין לבין מה שהקורא מבין.</p>
+</div></details>
+<details><summary>פתיחה מוכנה (מהמצגת של ענבר)</summary><div>
+<p class="quote">בסיפור "האדונית והרוכל" מאת ש״י עגנון יש אלגוריה ליחסי יהודים וגויים. הסיפור מתאר את יוסף, הרוכל היהודי, שמנסה למכור להלני, האדונית הגויה, חפצים, מאבד את דרכו, שב לביתה ומבקש ללון שם. במהלך הזמן מתפתחת ביניהם מערכת יחסים שבה הרוכל חושד באדונית והיא מנסה לרצוח אותו, אך הוא ניצל והיא מתה בעצמה. במישור הגלוי מדובר במערכת יחסים בין יהודי לגויה שנידונה לכישלון. במישור הסמוי הנושא הוא אנטישמיות: לא ניתן לסמוך על הגויים, וגם התבוללות לא תעזור.</p>
+</div></details>
+</div>`
+};
+
+// ---------- flashcards ----------
+const CARDS = [
+ ['ant','היבריס','חטא הגאווה: האדם רואה את עצמו גדול מכפי שהוא ומתריס נגד האלים או הגורל. אצל קראון: מציב את חוקו מעל האלים ולא מקשיב. אצל אנטיגונה: שחצנות, חיפוש תהילה, דחיית איסמנה.'],
+ ['ant','המרטיה','הטעות הטרגית של הגיבור שמובילה לנפילתו.'],
+ ['ant','פריפטיה','מהפך: תפנית חדה בגורל הגיבור. אצל קראון: אחרי נבואת טרסיאס הוא נסוג, אבל מאוחר מדי.'],
+ ['ant','אנגנוריזיס','הכרה: הרגע שבו הגיבור מבין את טעותו. קראון בסוף, עם גופת היימון: "אני הרגתי אותך".'],
+ ['ant','קתרזיס','זיכוך: הצופה חווה חמלה ופחד ומשתחרר מהם.'],
+ ['ant','נמסיס','העונש או הנקמה שבאים על מי שחטא בהיבריס.'],
+ ['ant','גיבור טרגי','אדם ממעמד רם, לא צדיק ולא רשע, שנופל בגלל טעות (המרטיה) וסובל יותר מכפי שמגיע לו.'],
+ ['ant','קונפליקט טרגי','עימות בין שני ערכים שלכל אחד מהם צדק חלקי: חוק האלים (אנטיגונה) מול חוק המלך (קראון).'],
+ ['ant','המקהלה','זקני תביי. מעירים, שופטים ומבטאים את קול החברה. בתחילה נאמנים לקראון, ובסוף מייעצים לו להיכנע ומסכמים את הלקח.'],
+ ['ant','אירוניה דרמטית','הצופה יודע יותר מהדמות. למשל טרסיאס העיוור "רואה" את האמת, וקראון שרואה עיוור לטעותו.'],
+ ['ant','איסמנה','האחות המתונה והצייתנית. דמות ניגודית שמבליטה את אומץ ליבה ואת קיצוניותה של אנטיגונה.'],
+ ['ant','היימון','בן קראון וארוסה של אנטיגונה. קול העם והדור הצעיר ("עץ שאינו מתכופף נשבר"). מתאבד ליד גופת אנטיגונה.'],
+ ['ant','טרסיאס','הנביא העיוור. מזהיר שהאלים זועמים ומנבא שקראון ישלם במות בנו. מביא למפנה.'],
+ ['ant','אאורידיקה','אשת קראון. שומעת על מות בנה, יוצאת בשתיקה ומתאבדת. העונש האחרון של קראון.'],
+ ['ant','פולינקס ואטאוקלס','אחיה של אנטיגונה שהרגו זה את זה. אטאוקלס נקבר בכבוד. פולינקס, שתקף את תביי עם צבא ארגוס, נשאר לא קבור.'],
+ ['ant','אחדות הזמן, המקום והעלילה','הטרגדיה מתרחשת ביממה אחת, במקום אחד (לפני הארמון), בעלילה אחת.'],
+ ['ant','שיר האדם (סטסימון ראשון)','"רבים הנפלאות, ואין נפלא מן האדם". האדם שולט בטבע, אבל מצליח רק אם מכבד את חוקי האלים.'],
+ ['ant','העונש של קראון','מות היימון ומות אאורידיקה. הוא נשאר חי, בודד ושבור.'],
+ ['yag','מי הדמות הראשית ומה מצבה?','יונה פוטאפוב, עגלון מהכפר שעובד בעיר. בנו מת השבוע והוא מחפש מישהו שיקשיב לו.'],
+ ['yag','ארבעת המפגשים','איש הצבא, שלושת השיכורים (וגיבן), החצרן, העגלון הצעיר. וסוף: הסוסה.'],
+ ['yag','מוטיב העיניים','איש הצבא עוצם עיניים והעגלון הצעיר נרדם: אין הקשבה. עיני הסוסה בורקות: הקשבה.'],
+ ['yag','אנלוגיה ביונה ובסוסה','שניהם לא זזים בשלג, שקועים בעצמם, תלושים מהכפר ומושיטים צוואר. זה רמז מטרים לסוף.'],
+ ['yag','"חברה בהמית מול בהמה אנושית"','בני האדם מתנהגים באכזריות ובאדישות. דווקא הסוסה מקשיבה (האנשה).'],
+ ['yag','מספר מתערב ביגון','"האם לא יימצא בין אלפי האנשים הללו גם אחד שיאות להקשיב לו?" וגם "כשם שגופו צמא למים כך צמאה נפשו לשיחה".'],
+ ['yag','שם הבן','קוזמה יוניץ׳. נאמר רק בשיחה עם הסוסה.'],
+ ['yag','נקודת המפנה ביגון','השיחה עם הסוסה. מאוחדת עם השיא, ההתרה והסיום.'],
+ ['yag','תיאורי הנוף ביגון','שלג, חורף, ערב וצבעים אפורים ולבנים: אווירה קפואה שמשקפת חברה קפואה.'],
+ ['tsf','מי המספר בצפירה?','אלי, בגוף ראשון. הוא דמות בסיפור (שלא כמו יגון והאדונית, שבהם מספר כל־יודע).'],
+ ['tsf','זונדרקומנדו','יחידות של אסירים יהודים במחנות ההשמדה שנכפו להוציא גופות מתאי הגזים ולשרוף אותן. שולם היה בה. אלי חושב שזו יחידת קומנדו צבאית.'],
+ ['tsf','מוטיב הקומנדו','שייטת 13 (גאווה ועילית) מול הזונדרקומנדו (בושה וכפייה). אנלוגיה ניגודית בין שרון לשולם.'],
+ ['tsf','מוטיב הצפירה','בכותרת, ביום השואה (רק נרמזת) וביום הזיכרון בסיום. כבוד חיצוני וריק, וגם "מגן בלתי־נראה" שמציל את אלי.'],
+ ['tsf','האירוניה בסיום צפירה','הבריונים עומדים דום ומכבדים את הצפירה, אבל לא את האדם. אלי המוסרי הולך באמצע הצפירה.'],
+ ['tsf','איך מוקטנים שרון וגלעד?','דימויים: "בובות בחלון ראווה", גלעד "קולב בגדים מגודל", שרון "ילד קטן שמחקה פוזה מסרט פעולה".'],
+ ['tsf','התרה גלויה ונסתרת','גלויה: אלי ניצל בזכות הצפירה. נסתרת: הסכסוך לא נפתר, ולכן זה סוף פתוח.'],
+ ['tsf','שולם','שרת בית הספר, ניצול שואה, רזה וקטן. בוכה אחרי הטקס. מקבל אופני ספורט מאבא של שרון ("הכי בריא ללכת ברגל").'],
+ ['tsf','הביקורת בצפירה','על חברה שמעריצה כוח ומראה, על טקסים ריקים ועל בורות לגבי השואה. דיווח על עוול אינו הלשנה.'],
+ ['adn','שמות הדמויות','יוסף (אלוזיה ליוסף המקראי, "טרוף טורף יוסף") והלני (הלנה מטרויה והלניזם).'],
+ ['adn','מוטיב הסכין','4 הופעות: הקנייה, התשובה על הבעל, החלום וניסיון הרצח. רמז מטרים, אירוניה ומבנה מעגלי.'],
+ ['adn','מוטיב הסעודה','יוסף אוכל טריפה ומתבולל. הלני לא אוכלת. בסוף הוא מבשל לה והיא מקיאה.'],
+ ['adn','מוטיב החיה','הלני ככלבה שמוצצת דם, גופתה נבלה לעופות, היא קוראת ליוסף בשמות של חיות, וקרניים בבית.'],
+ ['adn','מוטיב הדרך','יוסף תועה ומאבד את זהותו. "כמה נתרחקתי": מרחק פיזי ורוחני. נדודי העם היהודי.'],
+ ['adn','למה יוסף ניצל?','יצא לשלג לקרוא קריאת שמע (בחדר היה צלם). דמו התקרר, והלני דחתה אותו: "דמך לא דם אלא מי קרח".'],
+ ['adn','הרובד הסמוי באדונית והרוכל','אלגוריה ליחסי יהודים וגויים: התבוללות לא מצילה, האנטישמיות רצחנית, ורק החזרה לזהות היהודית מצילה. נכתב בזמן השואה.'],
+ ['adn','מבנה מעגלי','חורף בהתחלה ובסוף, הגג (תיקון וקבורה), הסכין (נמכרה וחזרה), הבישול מתהפך, ושוב נדודים.'],
+ ['adn','מעבר המגורים של יוסף','רפת, חדר הכלים (מחסן), מיטת הבעל, ושוב המחסן. מבטא התקרבות והתרחקות.'],
+ ['adn','"המרבה לשאול מעמיק לו שאול"','תשובה מאיימת של הלני לשאלות יוסף. "שאול" הוא גם שאלה וגם עולם המתים. רמז מטרים.'],
+ ['all','אלגוריה','יצירה עם רובד גלוי ורובד סמוי שמעביר מסר. למשל האדונית והרוכל.'],
+ ['all','אנלוגיה','השוואה בין שני דברים. ישירה (דמיון, כמו יונה והסוסה) או ניגודית (כמו שולם ושרון, אנטיגונה ואיסמנה).'],
+ ['all','רמז מטרים','פרט שמרמז על מה שיקרה בהמשך. למשל סכין הציידים, או "הלבין כרוח רפאים".'],
+ ['all','מוטיב','פרט, דימוי או מילה שחוזרים ביצירה כדי להדגיש רעיון.'],
+ ['all','האנשה','ייחוס תכונות אנושיות למי שאינו אדם. למשל הסוסה ביגון.'],
+ ['all','אקספוזיציה','פתיחת היצירה: מקום, זמן, דמויות, אווירה והמצב ההתחלתי.'],
+ ['all','מספר כל־יודע','מספר מחוץ לסיפור, בגוף שלישי, שיודע את מחשבות הדמויות. ביגון ובאדונית והרוכל.'],
+ ['all','אפיון עקיף','הקורא מסיק את התכונות מדיבור, ממעשים, מתיאור חיצוני ומסביבה, ולא מהצהרה ישירה.'],
+ ['all','מבנה פתיחה בתשובה','שם היצירה, שם היוצר, נושא, כמה משפטים על התוכן, התייחסות לסיום ושמות הדמויות. 4–5 שורות.']
+];
+
+// ---------- quiz ----------
+const QUIZ = [
+ ['ant','מה קובע הצו של קראון?',['שני האחים ייקברו בכבוד','אטאוקלס ייקבר בכבוד ופולינקס יושאר לא קבור','פולינקס ייקבר ואטאוקלס יגורש','אנטיגונה תינשא להיימון'],1,'אטאוקלס הגן על העיר ולכן נקבר בכבוד. פולינקס תקף אותה עם צבא ארגוס, ולכן הוא "בוגד" שגופתו תיזרק לכלבים ולעופות.'],
+ ['ant','מה תגובתה של איסמנה בפרולוג?',['מצטרפת מיד','מסרבת: "נשים אנחנו", אסור לנו להמרות את המלך','מלשינה לקראון','בורחת מתביי'],1,'איסמנה מתונה וצייתנית. היא דמות ניגודית שמבליטה את אומץ ליבה ואת עקשנותה של אנטיגונה.'],
+ ['ant','על איזה חוק מסתמכת אנטיגונה מול קראון?',['חוק העיר','החוקים הלא־כתובים של האלים','חוק המקהלה','צוואת אדיפוס'],1,'היא טוענת שצו של אדם אינו יכול לבטל את חוקי האלים הנצחיים, שמחייבים לקבור את המתים.'],
+ ['ant','מי מגלה לקראון שהגופה כוסתה בעפר?',['טרסיאס','השומר','היימון','השליח'],1,'השומר, דמות פשוטה ומעט קומית שחוששת לחייה. דרכו רואים את עריצותו של קראון.'],
+ ['ant','מה עיקר "שיר האדם" של המקהלה?',['האדם חלש מול הטבע','אין נפלא מן האדם, אבל עליו לכבד את חוקי האלים','האלים אכזריים','המלך תמיד צודק'],1,'האדם שולט בים, בארץ ובחיות, אבל מצליח רק כשהוא מכבד את חוקי הארץ ואת משפט האלים. זו אזהרה מפני היבריס.'],
+ ['ant','מה טוען היימון בשיחה עם אביו?',['שאנטיגונה אשמה','שהעם מצדד באנטיגונה ושעל קראון להתגמש','שהוא רוצה למלוך','שטרסיאס משקר'],1,'היימון מדבר בהיגיון ובכבוד: "עץ שאינו מתכופף נשבר". קראון עונה בזלזול, והשיחה מסתיימת בכעס.'],
+ ['ant','איזה משפט של קראון מבטא זלזול בנשים?',['"לא לשנוא נולדתי"','"כל עוד אני חי, לא תמשול בי אישה"','"רבים הנפלאות"','"אני הרגתי אותך"'],1,'זה חלק מההיבריס שלו. הוא מרגיש שאם אנטיגונה תנצח, "אני לא גבר, היא הגבר".'],
+ ['ant','"לא לשנוא נולדתי, אלא לאהוב". מי אומרת זאת?',['איסמנה','אאורידיקה','אנטיגונה','המקהלה'],2,'אנטיגונה מול קראון: הנאמנות שלה היא למשפחה ולאהבה, לא לשנאה הפוליטית.'],
+ ['ant','מה העונש שגוזר קראון על אנטיגונה?',['סקילה','גלות','כליאה חיה במערה עם מעט מזון','מוות בחרב'],2,'מעט המזון נועד כדי שהעיר לא "תיטמא" בדמה. היא נקברת בעודה בחיים.'],
+ ['ant','מה מנבא טרסיאס?',['שאנטיגונה תשתחרר','שקראון ישלם במות אחד מצאצאיו','שתביי תיכבש','שאיסמנה תמלוך'],1,'"גופה מבשרך": מות היימון. קראון מאשים אותו בשוחד, ואחר כך נבהל ונכנע.'],
+ ['ant','מהי האירוניה בדמות טרסיאס?',['הוא שקרן','הוא עיוור אבל רואה את האמת, וקראון שרואה עיוור לטעותו','הוא קרוב משפחה של קראון','הוא אינו מאמין באלים'],1,'אירוניה טרגית. הראייה הפנימית מול העיוורון המוסרי.'],
+ ['ant','מדוע קראון מגיע מאוחר מדי?',['הלך קודם לקבור את פולינקס','נרדם','נעצר בידי השומרים','המקהלה עיכבה אותו'],0,'קודם הוא קבר את פולינקס ורק אחר כך הלך למערה. בינתיים אנטיגונה כבר תלתה את עצמה.'],
+ ['ant','כיצד מת היימון?',['קראון הרג אותו','התאבד בחרבו ליד גופת אנטיגונה','מת במלחמה','נקבר עם אנטיגונה'],1,'אחרי שניסה לתקוף את אביו, הוא דקר את עצמו כשהוא מחבק את אנטיגונה.'],
+ ['ant','מהי "פריפטיה" במחזה?',['ההיכרות עם הדמויות','המהפך בגורל קראון, מכוח ושליטה לאסון','שיר המקהלה','דברי השומר'],1,'אחרי נבואת טרסיאס קראון משנה את דעתו, והגלגל מתהפך עליו.'],
+ ['ant','מהי "אנגנוריזיס" אצל קראון?',['ההכרזה על הצו','ההכרה באשמתו בסוף המחזה','המינוי למלך','השיחה עם השומר'],1,'בסוף, עם גופת בנו, קראון מודה שהוא האשם. זה רגע ההכרה.'],
+ ['ant','מי היא אאורידיקה?',['אחות אנטיגונה','אשת קראון','הנביאה','אם פולינקס'],1,'היא מופיעה לרגע, שומעת את השליח, יוצאת בשתיקה ומתאבדת כשהיא מקללת את קראון.'],
+ ['ant','מה מבטא סיום המחזה (דברי המקהלה)?',['שהגאים לומדים חוכמה רק דרך סבל, לעת זקנה','שקראון צדק','שאין אלים','שאנטיגונה הייתה בוגדת'],0,'"התבונה היא ראש האושר". דברי רהב של גאים מביאים עליהם מכות, וכך הם לומדים חוכמה.'],
+ ['ant','מה תפקיד המקהלה?',['רק לשיר','להגיב, לשפוט, לייצג את קול החברה ולסכם את המוסר','לשחק את האלים','לספר את העתיד'],1,'זקני תביי מתווכים בין הדמויות לקהל ומשמשים מעין "מצפון" חברתי.'],
+ ['ant','איזה מאלה אינו חלק מההיבריס של קראון?',['מציב את חוקו מעל האלים','מסרב להקשיב להיימון ולטרסיאס','קובר את פולינקס בסוף','מזלזל בנשים'],2,'הקבורה בסוף היא ניסיון לתקן. היא חלק מהמפנה ולא מההיבריס.'],
+ ['ant','מה ההיבריס של אנטיגונה?',['פחדנות','שחצנות ועקשנות קיצונית, דחיית איסמנה וחיפוש תהילה','צייתנות לקראון','אהבה להיימון'],1,'גם אנטיגונה חוטאת בגאווה: היא בטוחה בצדקתה עד הסוף ומבזה את אחותה.'],
+ ['ant','מה מלמדת קינת אנטיגונה לפני מותה?',['שהיא מתחרטת על הקבורה','את צדה האנושי: פחד ואבל על חיים בלי חתונה וילדים','שהיא שונאת את פולינקס','שהיא סולחת לקראון'],1,'פתאום רואים נערה פגיעה ולא רק גיבורה עיקשת. זה מעורר חמלה.'],
+ ['ant','מהי "אחדות הזמן"?',['המחזה מתרחש בשנה אחת','המחזה מתרחש ביממה אחת','כל הדמויות באותו גיל','כולם מדברים יחד'],1,'בטרגדיה היוונית: זמן אחד (יממה), מקום אחד ועלילה אחת.'],
+ ['ant','למה מסופרים המוות וההתאבדויות בפי שליח?',['כי השחקנים עייפו','במוסכמות הטרגדיה היוונית אלימות לא הוצגה על הבמה','כדי לחסוך זמן','זה במקרה'],1,'האסון מסופר ולא מוצג. זה מעצים את הדמיון ואת האימה.'],
+ ['ant','איזה משפט מתאר נכון את הקונפליקט?',['טוב מול רע מוחלט','שני ערכים שלכל אחד צדק חלקי: חוק האלים והמשפחה מול חוק המלך והמדינה','עשירים מול עניים','צעירים מול זקנים בלבד'],1,'זה קונפליקט טרגי. לכן שני הצדדים נענשים.'],
+ ['yag','מה מצבו של יונה בפתיחה?',['עשיר ושמח','יושב לבן מהשלג, כפוף ולא זז, אחרי מות בנו','שיכור','מחפש עבודה'],1,'אקספוזיציה קפואה: הוא "לבן כרוח רפאים" ולא מנער את השלג. הוא שקוע ביגונו.'],
+ ['yag','מה עושה איש הצבא כשיונה מספר על בנו?',['בוכה איתו','שואל ממה מת, ואז ממהר ועוצם את עיניו','מכה אותו','משלם לו כפליים'],1,'לרגע נראה שהוא מתעניין, ואז הוא עוצם עיניים. זה חלק ממוטיב העיניים.'],
+ ['yag','למה יונה מסכים למחיר הנמוך של השיכורים?',['כי הוא צריך כסף','"ובלבד שיהיו נוסעים". חשוב לו שמישהו יהיה איתו','כי הוא מפחד מהם','כי זה המחיר הרגיל'],1,'הכסף לא חשוב לו. הוא רוצה קרבה אנושית, ואפילו השפלה עדיפה על בדידות.'],
+ ['yag','מה עונה הגיבן כשיונה מספר על מות בנו?',['"משתתף בצערך"','"כולנו נמות"','"איך קראו לו?"','לא עונה'],1,'תשובה אדישה ואכזרית, ואחריה מכה בעורף. ויונה מברך אותם. זו אירוניה.'],
+ ['yag','מה מיוחד במפגש עם החצרן?',['החצרן מקשיב','יונה יוזם את השיחה ושואל מה השעה, והחצרן דוחה אותו','החצרן נותן לו כסף','זה מפגש עם אישה'],1,'שלא כמו קודם, הפעם יונה פונה ראשון. הדחייה מביאה אותו לייאוש.'],
+ ['yag','מה קורה עם העגלון הצעיר?',['מקשיב עד הסוף','שותה מים, מתכסה ונרדם','מספר על בנו שלו','מגרש את יונה'],1,'המספר משווה: כמו שגופו צמא למים, כך נפשו של יונה צמאה לשיחה.'],
+ ['yag','מהו האמצעי המרכזי ביגון לפי המצגת?',['חרוז','דיאלוג','פלאשבק','מכתב'],1,'כל דיאלוג מנסה לייצר תקשורת ונכשל. רק הדיאלוג עם הסוסה מצליח.'],
+ ['yag','מה מסמלות עיני הסוסה הבורקות?',['כעס','הקשבה, בניגוד לעיניים העצומות של בני האדם','רעב','פחד'],1,'מוטיב העיניים: עיניים עצומות הן ניתוק, ועיניים בורקות הן הקשבה.'],
+ ['yag','איזו טענה על האנלוגיה בין יונה לסוסה נכונה?',['היא ניגודית','היא ישירה ומשמשת רמז מטרים לסיום','אין אנלוגיה','היא בין יונה לאיש הצבא'],1,'שניהם לבנים, דוממים, תלושים מהכפר ומושיטים צוואר. כך מרמז הסיפור שרק הסוסה תקשיב.'],
+ ['yag','מי המספר ביגון?',['יונה בגוף ראשון','מספר כל־יודע ומתערב בגוף שלישי','הסוסה','הבן'],1,'הוא כל־יודע, וגם מתערב: "האם לא יימצא בין אלפי האנשים… אחד שיאות להקשיב לו?"'],
+ ['yag','מה הנושא המרכזי ביגון?',['אהבה','בדידות האדם בחברה עירונית אדישה','מלחמה','עוני בלבד'],1,'ביקורת חברתית על חברה מנוכרת, וגם מסר אוניברסלי.'],
+ ['yag','מה מבטאת ההיררכיה במפגשים?',['שרק העשירים אדישים','שבכל המעמדות, עד עגלון כמותו, אף אחד לא מקשיב','שהעניים טובים יותר','שהצבא אכזרי'],1,'מאיש צבא ממעמד גבוה עד עגלון בדיוק ברמתו, כולם נכשלים בהקשבה.'],
+ ['yag','מה שם בנו של יונה ומתי נאמר?',['איוון, בפתיחה','קוזמה יוניץ׳, רק בשיחה עם הסוסה','פיוטר, לאיש הצבא','לא נאמר'],1,'רק מול הסוסה יונה מדבר בשטף ומפרט, עד כדי שם הבן.'],
+ ['yag','מה תפקיד תיאורי הנוף (שלג, חורף, ערב)?',['קישוט בלבד','יוצרים אווירה קפואה וקודרת שמשקפת חברה קפואה','מראים שחג מתקרב','מסבירים את מות הבן'],1,'הנוף הקפוא הוא השתקפות של הניכור החברתי ושל עולמו הפנימי של יונה.'],
+ ['tsf','מי מספר את "צפירה"?',['מספר כל־יודע','אלי, בגוף ראשון','שולם','שרון'],1,'נקודת התצפית של אלי, האאוטסיידר, מציגה אותו כדמות הראויה.'],
+ ['tsf','מה אלי מבין מהמילה "זונדרן קומנדו"?',['שזו יחידה במחנות ההשמדה','שזו יחידת קומנדו צבאית','שזה שם של מורה','לא שואל'],1,'בורות. הוא לא מבין שזו יחידה של אסירים יהודים שנכפו לטפל בגופות. אירוניה מול השייטת.'],
+ ['tsf','מה עשו שרון וגלעד לאופניים של שולם?',['תיקנו אותם','"עשו חארקות" עליהם וזרקו אותם','מכרו אותם','החזירו אותם'],1,'הם שתו בירות וחגגו את קבלתו של שרון לשייטת, "כמו ילדים קטנים".'],
+ ['tsf','מה הבטיח המנהל לאלי?',['פרס','שאף אחד לא יידע על השיחה','להעניש את אלי','להתקשר להוריו'],1,'בסוף נראה שההבטחה הופרה. אנלוגיה בין התנהגות לא הוגנת של המבוגר לזו של הנערים.'],
+ ['tsf','מה עשה אבא של שרון?',['העניש את אלי','קנה לשולם אופני ספורט חדשות','פיטר את שולם','הגיש תלונה'],1,'שולם סירב בהתחלה ("הכי בריא ללכת ברגל") ולבסוף לקח אותן.'],
+ ['tsf','מה תפקידה של סיוון בסיום?',['מצילה את אלי','מפתה אותו למלכודת מאחורי הצריפים','קוראת למנהל','מתעמתת עם שרון'],1,'היא "דואגת" לו ושולחת אותו לחור בגדר, בדיוק לשם ששרון וגלעד מחכים.'],
+ ['tsf','מה עוצר את המכות?',['המנהל','צפירת יום הזיכרון','שוטר','שולם'],1,'שרון וגלעד נעמדים דום, ואלי הולך משם לאט. הצפירה היא "מגן בלתי־נראה".'],
+ ['tsf','באיזה יום מתרחש הסיום?',['יום השואה','יום הזיכרון','יום העצמאות','ט״ו בשבט'],1,'הסיפור נע בין צפירת יום השואה בפתיחה לצפירת יום הזיכרון בסיום.'],
+ ['tsf','מה מבטא הדימוי "כמו בובות בחלון ראווה"?',['יופי','כבוד חיצוני וריק. הבריונים מוקטנים ומגוחכים','פחד','שמחה'],1,'כך גם "קולב בגדים מגודל" ו"ילד קטן שמחקה פוזה מסרט פעולה".'],
+ ['tsf','מה פירוש "התרה גלויה וסמויה" בצפירה?',['הכול נפתר','גלויה: אלי ניצל. סמויה: הסכסוך נשאר פתוח','אין התרה בכלל','שרון מתנצל'],1,'זהו סוף פתוח. אלי כנראה יחטוף בהזדמנות אחרת, והדילמות לא נפתרו.'],
+ ['tsf','איזו אנלוגיה ניגודית קיימת בסיפור?',['אלי וסיוון','שולם (זונדרקומנדו) ושרון (שייטת)','צורי ואביב','המנהל והשוטר'],1,'קומנדו של גאווה ועילית מול קומנדו של בושה וכפייה.'],
+ ['tsf','על מה מותחת "צפירה" ביקורת?',['על הצבא בלבד','על חברה שמעריצה כוח, על טקסים ריקים ועל בורות לגבי השואה','על בית הספר בלבד','על הורים'],1,'זו ביקורת חברתית על "הצבר" הנערץ שהוא בפועל חסר ערכים.'],
+ ['tsf','אלי הוא…',['גיבור קלאסי','אנטי־גיבור: חלש, שולי, אבל מוסרי','נבל','דמות משנית'],1,'הוא הדמות הראשית אבל לא גיבור במובן המקובל. דווקא הוא מחזיק בערכים.'],
+ ['adn','מה קונה האדונית מהרוכל?',['מטפחת','סכין ציידים','תכשיט','מראה'],1,'זה רמז מטרים. אותה סכין תשמש אותה בניסיון הרצח.'],
+ ['adn','למה הרוכל חוזר לבית האדונית?',['שכח את קופתו','תעה ביער, ראה אור והגיע שוב לביתה','היא הזמינה אותו','רצה לגבות כסף'],1,'יסוד אגדי. ה"אור" מסמל ברובד הסמוי את המשיכה לעולם הגויים.'],
+ ['adn','מה מסמל אכילת הטריפה אצל יוסף?',['רעב','התרחקות מהיהדות והתבוללות','עוני','בריאות'],1,'מוטיב הסעודה: "אם צלתה לו בשר בחמאה לא משך ידו ממנה".'],
+ ['adn','"דם אנשים אני שותה ובשר אדם אני אוכלת". מה תפקיד המשפט?',['בדיחה','רמז מטרים לטבעה הטורף, שיוסף מתעלם ממנו','שיר אהבה','תפילה'],1,'יוסף מפרש את דבריה המוזרים כדברי אהבה. כך נוצר פער בינו לבין הקורא.'],
+ ['adn','מה רואה יוסף בחלומו?',['שהוא מולך','שתוקעים סכין בלבו ושהכלבה נועצת שיניים בגרונו','שהוא חוזר הביתה','את בנו'],1,'החלום מבטא פחדים לא מודעים. יוסף המקראי פתר חלומות, ויוסף הזה לא מבין את חלומו.'],
+ ['adn','מה מציל את יוסף?',['השוטרים','יציאתו לשלג לקרוא קריאת שמע, שקיררה את דמו','הכלבה','השכנים'],1,'"דמך לא דם אלא מי קרח". ברובד הסמוי, החזרה לדת היא שמצילה.'],
+ ['adn','למה יוסף יוצא החוצה לקרוא קריאת שמע?',['כי קר בפנים','כי בחדר תלוי צלם','כי הלני ביקשה','כדי לברוח'],1,'הוא לא יכול להתפלל מול סמל נוצרי. זה רגע של חזרה לזהות.'],
+ ['adn','מה פירוש "כמה נתרחקתי"?',['מרחק פיזי בלבד','משמעות כפולה: מרחק מהבית ומרחק רוחני מהיהדות','שהוא עייף','שהוא שכח את הדרך ליער'],1,'מוטיב הדרך: התעייה בדרך היא איבוד הזהות.'],
+ ['adn','מה עלה בגורל גופת הלני?',['נקברה בבית קברות','נקברה בארון על הגג והעופות אכלו אותה','נשרפה','נלקחה לעיר'],1,'מבנה מעגלי: מי שאכלה את בעליה נאכלת בעצמה. היא מונמכת מאדם לחיה.'],
+ ['adn','מה מייצגת הלני ברובד הסמוי?',['את היהדות','את עולם הגויים והנצרות (הלניזם)','את הטבע','את המדינה'],1,'שמה מרמז על תרבות יוון ועל הלנה מטרויה: פיתוי שמביא חורבן.'],
+ ['adn','איזו טענה על סוף הסיפור נכונה?',['יוסף מתחתן','יוסף חוזר לנדודיו. סוף מעגלי ופתוח, ולא בטוח שלמד לקח','יוסף נשאר בבית','יוסף נהרג'],1,'הסוף סגור כי הסכנה חלפה, ופתוח כי יוסף חוזר לאותה נקודה.'],
+ ['adn','מה מתאר את יוסף לאורך הסיפור?',['אקטיבי כל הזמן','אקטיבי, אחר כך פסיבי (לא מצליח לעזוב), ובסוף שוב אקטיבי','פסיבי כל הזמן','רשע'],1,'הלני, לעומתו, אקטיבית ושולטת לאורך כל הסיפור.'],
+ ['adn','איזה סוג מספר יש באדונית והרוכל?',['גוף ראשון','כל־יודע, שיוצר פערי מידע ואירוניה','הלני','יוסף כמספר עד'],1,'המספר מפזר רמזים שהקורא מבין ויוסף מתעלם מהם.']
+];
+
+// ---------- practice questions ----------
+const PRACTICE = [
+ {w:'ant', q:`במחזה הטרגי מוצג קונפליקט בין שני ערכים. הציגו את הקונפליקט במחזה "אנטיגונה" והסבירו כיצד הוא בא לידי ביטוי בשני עימותים (דיאלוגים) במחזה.`,
+  sk:`<p><b>פתיחה:</b> המחזה הטרגי "אנטיגונה" מאת סופוקלס, הקונפליקט בין חוק האלים (קבורת המתים) לבין חוק המלך (הצו נגד קבורת פולינקס), אנטיגונה וקראון, ושני הגיבורים נענשים בסוף.</p>
+<p><b>הצגת הקונפליקט:</b> מה כל צד מייצג (דת, משפחה ופרט מול מדינה, סדר וציות), ולמה לכל צד יש צדק חלקי. זה קונפליקט טרגי.</p>
+<p><b>עימות 1, אנטיגונה וקראון:</b> החוקים הלא־כתובים מול הצו. "לא לשנוא נולדתי אלא לאהוב". קראון חושש שאישה תנצח אותו. ההיבריס של שניהם.</p>
+<p><b>עימות 2, קראון והיימון</b> (או קראון וטרסיאס): העם מצדד באנטיגונה, "עץ שאינו מתכופף נשבר". קראון: "האם העיר תאמר לי איך למלוך?". הוא מסרב להקשיב.</p>
+<p><b>אמצעים:</b> דמויות ניגודיות (איסמנה), המקהלה, אירוניה דרמטית.</p>
+<p><b>סיום:</b> עקשנות שני הצדדים מובילה לאסון. מות אנטיגונה, היימון ואאורידיקה, וההכרה של קראון.</p>`},
+ {w:'ant', q:`"ההיבריס, חטא הגאווה, מביא את הגיבור הטרגי לנפילתו." הסבירו טענה זו על פי דמותו של קראון או דמותה של אנטיגונה. בתשובתכם התייחסו לסיום המחזה.`,
+  sk:`<p><b>פתיחה:</b> סופוקלס, שם המחזה, הקונפליקט, ושני הגיבורים חוטאים בהיבריס.</p>
+<p><b>הגדרה:</b> היבריס הוא חטא הגאווה, התרסה נגד האלים או הגורל, ואחריו בא עונש (נמסיס). גיבור טרגי: ממעמד רם, נופל בגלל טעות.</p>
+<p><b>אם בוחרים בקראון:</b> (1) הצו מציב את חוקו מעל חוקי האלים. (2) הוא לא מקשיב להיימון ולעם ("לא תמשול בי אישה"). (3) הוא מאשים את טרסיאס בשוחד. (4) מפנה מאוחר מדי. (5) העונש: מות היימון ואאורידיקה. ההכרה: "אני הרגתי אותך". דברי המקהלה על גאים שלומדים חוכמה לעת זקנה.</p>
+<p><b>אם בוחרים באנטיגונה:</b> עקשנות, דחיית איסמנה, חיפוש תהילה, התרסה גלויה מול המלך. העונש: הקבר החי. הקינה מעוררת חמלה.</p>
+<p><b>סיום:</b> האסון הוא תוצאת ההיבריס, והקתרזיס אצל הצופה.</p>`},
+ {w:'ant', q:`דמויות משנה במחזה תורמות להבנת הדמויות הראשיות ולקידום העלילה. בחרו שתי דמויות משנה במחזה "אנטיגונה" (למשל איסמנה, היימון, טרסיאס, השומר) והסבירו את תרומתן.`,
+  sk:`<p><b>פתיחה</b> רגילה על המחזה.</p>
+<p><b>איסמנה:</b> דמות ניגודית לאנטיגונה (צייתנית ומפחדת מול אמיצה ועיקשת). מבליטה את גבורתה ואת קיצוניותה. אחר כך מבקשת לחלוק באשמה, ואנטיגונה דוחה אותה (היבריס).</p>
+<p><b>היימון:</b> קול העם והתבונה. העימות איתו חושף את עקשנותו של קראון. מותו הוא העונש של קראון.</p>
+<p><b>טרסיאס:</b> שליח האלים. אירוניה של עיוור שרואה. מביא למפנה ולנבואת העונש.</p>
+<p><b>השומר:</b> הומור, ומבליט את הפחד מקראון.</p>
+<p>לכל דמות: תכונות, ואיך היא מאירה את הדמות הראשית ומקדמת את העלילה.</p>`},
+ {w:'ant', q:`מיהו הגיבור הטרגי במחזה "אנטיגונה": אנטיגונה או קראון? הציגו את עמדתכם ונמקו אותה בעזרת מושגי הטרגדיה.`,
+  sk:`<p><b>פתיחה</b> על המחזה ועל שני הגיבורים.</p>
+<p><b>הגדרת גיבור טרגי:</b> מעמד רם, לא צדיק ולא רשע, המרטיה והיבריס, פריפטיה, אנגנוריזיס, סבל, קתרזיס.</p>
+<p><b>בעד קראון:</b> הוא עובר מהפך (פריפטיה) והכרה (אנגנוריזיס). הוא נשאר חי ונושא בתוצאות. המחזה מסתיים בו ובסבלו.</p>
+<p><b>בעד אנטיגונה:</b> שם המחזה, הגבורה, ההיבריס והמוות. מעוררת חמלה ופחד.</p>
+<p>בחרו צד ונמקו. אפשר לטעון ששניהם גיבורים טרגיים.</p>`},
+ {w:'ant', q:`הסבירו את תפקיד המקהלה במחזה "אנטיגונה". הביאו שתי דוגמאות לדברי המקהלה והסבירו כיצד הם תורמים למשמעות המחזה.`,
+  sk:`<p><b>פתיחה.</b></p>
+<p><b>תפקידים:</b> קול החברה (זקני תביי), תגובה ושיפוט, מתווכת לקהל, יוצרת מתח ואירוניה, מסכמת את המוסר.</p>
+<p><b>דוגמה 1:</b> "שיר האדם": גדולת האדם, ואזהרה שעליו לכבד את חוקי האלים. רמז להיבריס.</p>
+<p><b>דוגמה 2:</b> העצה לקראון אחרי טרסיאס, להיכנע ולשחרר את אנטיגונה. מביאה למפנה.</p>
+<p><b>דוגמה 3:</b> הסיום: "התבונה היא ראש האושר".</p>
+<p>התפתחות המקהלה: נאמנה, אחר כך מהססת, ולבסוף נגד קראון.</p>`},
+ {w:'yag', q:`בסיפורים קצרים רבים מובלעת ביקורת על ערכי החברה. מהי הביקורת המובלעת בסיפור קצר אחד שלמדתם? הסבירו כיצד הביקורת מעוצבת בסיפור.`,
+  sk:`<p><b>פתיחה:</b> "יגון" מאת צ׳כוב, בדידות האדם, ביקורת על חברה אדישה, יונה ובנו, הסוסה בסוף.</p>
+<p><b>הביקורת:</b> חברה עירונית מנוכרת שאדישה לסבל הזולת, שבה החזק משפיל את החלש.</p>
+<p><b>איך היא מעוצבת:</b> ארבעת המפגשים (איש הצבא, השיכורים, החצרן, העגלון הצעיר) בהיררכיה יורדת, וכולם נכשלים. <b>מוטיב העיניים</b> (עצומות מול בורקות). <b>אנלוגיה</b> יונה–סוסה. <b>ניגוד</b> כפר–עיר. <b>תיאורי נוף</b> קפואים. <b>מספר מתערב</b> ("האם לא יימצא… אחד"). <b>האנשה</b>: "חברה בהמית מול בהמה אנושית". <b>אירוניה</b>: יונה מברך את מי שהיכו אותו.</p>`},
+ {w:'yag', q:`בחרו במוטיב מרכזי מסיפור קצר שלמדתם, תארו את הופעותיו בסיפור והסבירו את תרומתו לבניית משמעות הסיפור.`,
+  sk:`<p><b>פתיחה</b> על יגון.</p>
+<p><b>הגדרה:</b> מוטיב הוא פרט שחוזר ביצירה ומדגיש רעיון.</p>
+<p><b>מוטיב העיניים, ההופעות:</b> (1) איש הצבא עוצם עיניים ונרדם באמצע. (2) העגלון הצעיר מתכסה ונרדם. (3) עיני הסוסה בורקות כשיונה מדבר אליה.</p>
+<p><b>התרומה:</b> עיניים עצומות הן ניתוק וחוסר הקשבה, ועיניים פקוחות הן הקשבה. המוטיב מחזק את הביקורת על החברה ואת הקשר עם הסוסה.</p>
+<p>(חלופות: מוטיב הסכין באדונית והרוכל, או מוטיב הצפירה או הקומנדו בצפירה.)</p>`},
+ {w:'yag', q:`תארו נקודת מפנה בעלילה של סיפור קצר שלמדתם. מדוע לדעתכם זו נקודת מפנה? הסבירו את תרומתה לבניית משמעות הסיפור. (חורף 2019)`,
+  sk:`<p><b>פתיחה:</b> יגון, יונה, הניסיונות הכושלים, הסוסה.</p>
+<p><b>משפט מקשר:</b> נקודת המפנה היא ההקשבה של הסוסה, אחרי שכל הניסיונות להשיג אוזן קשבת אצל בני אדם נכשלו.</p>
+<p><b>הגוף:</b> נקודת המפנה מאוחדת עם השיא, ההתרה והסיום. יונה יוצא לאורווה: "אילו היה לך סייח והוא מת…". זו האנשה. הסוסה לועסת ועיניה בורקות (מוטיב העיניים). יונה פורק הכול.</p>
+<p><b>למה זה מפנה:</b> לראשונה מישהו "מקשיב". המעבר מגמגום לשטף, ורק כאן נאמר שם הבן. לפני כן: איש הצבא, השיכורים, החצרן והעגלון הצעיר.</p>
+<p><b>משמעות:</b> הביקורת החברתית: רק בעל חיים מקשיב. גם האנלוגיה מהפתיחה מתממשת.</p>`},
+ {w:'yag', q:`"פתיחת סיפור היא מעין חוזה בין הכותב לקורא" (עמוס עוז). אילו ציפיות מעוררת הפתיחה של סיפור קצר שלמדתם? האם הן מתממשות? (חורף 2017)`,
+  sk:`<p><b>פתיחה</b> על יגון.</p>
+<p><b>משפט מקשר:</b> האקספוזיציה של יגון מעוררת "הבטחות" לגבי המפגשים ולגבי הסיום.</p>
+<p><b>פסקה 1, האקספוזיציה:</b> ניגוד בין הכפר לעיר הסואנת. תיאורי נוף (לבן, שלג, ערב, אורות מפלצתיים) "מבטיחים" חברה קפואה. אנלוגיה בין יונה לסוסה "מבטיחה" שהיא תקשיב.</p>
+<p><b>פסקאות 2–5:</b> כל מפגש מממש את ההבטחה של חברה אטומה: איש הצבא, השיכורים, החצרן, העגלון הצעיר (מוטיב העיניים).</p>
+<p><b>פסקה 6:</b> הסיום עם הסוסה. ההבטחה של האנלוגיה מתממשת.</p>`},
+ {w:'tsf', q:`דמויות רבות בסיפור הקצר אינן מודעות למציאות חייהן במלואה. הסבירו כיצד מצב כזה בא לידי ביטוי בסיפור קצר שלמדתם. האם המודעות משתנה במהלך הסיפור או בסיומו?`,
+  sk:`<p><b>פתיחה:</b> צפירה, אתגר קרת, ביקורת חברתית, אלי, שרון וגלעד, האופניים של שולם, הצפירה בסיום.</p>
+<p><b>חוסר מודעות:</b> אלי לא מבין מה זה זונדרקומנדו (בורות). שרון וגלעד לא מבינים שמה שעשו פוגע בניצול שואה, והם בטוחים שזו רק "חארקה". התלמידים אדישים לטקס. אלי לא מבין שסיוון מובילה אותו למלכודת.</p>
+<p><b>שינוי:</b> אלי מבין שסיוון רימתה אותו, ובזמן הצפירה הוא "רואה" את הבריונים כבובות ומאבד את הפחד. אבל הבורות לגבי השואה נשארת. לשרון וגלעד אין שינוי: הם עומדים דום ומקללים.</p>
+<p><b>אמצעים:</b> אירוניה, דימויים, מוטיב הקומנדו, מספר בגוף ראשון.</p>
+<p>(חלופה: יוסף באדונית והרוכל, שעיוור לרמזים ולחלום ומתעורר רק בקריאת שמע.)</p>`},
+ {w:'tsf', q:`תארו את הסיום של אחד מהסיפורים הקצרים שלמדתם. האם סיום זה היה צפוי? הסבירו והדגימו.`,
+  sk:`<p><b>פתיחה</b> על צפירה.</p>
+<p><b>תיאור הסיום:</b> המלכודת מאחורי הצריפים, האיום, "אין לכם כבוד", ואז הצפירה. השניים עומדים דום ואלי הולך: "מגן בלתי־נראה".</p>
+<p><b>צפוי או לא:</b> העימות היה צפוי (סיוון מזהירה, המנהל לא שמר על הסוד), אבל ההצלה בזכות הצפירה מפתיעה. בכל זאת היא נרמזת בשם הסיפור ובצפירת יום השואה בפתיחה.</p>
+<p><b>משמעות:</b> אירוניה: מכבדים את הטקס ולא את האדם. סוף פתוח: התרה גלויה בלבד.</p>
+<p><b>אמצעים:</b> דימויים (בובות, קולב), מוטיב הצפירה.</p>`},
+ {w:'adn', q:`שאלת אחריות האדם למעשיו עומדת במרכזם של סיפורים קצרים. הסבירו כיצד באה שאלה זו לידי ביטוי בהתנהגותה ובמחשבותיה של הדמות המרכזית בסיפור שלמדתם.`,
+  sk:`<p><b>פתיחה:</b> "האדונית והרוכל" מאת עגנון. יוסף לא לוקח אחריות על חייו עד שכמעט נרצח.</p>
+<p><b>תקציר קצר:</b> הסכין, החזרה, הלינה, ההתקרבות.</p>
+<p><b>חוסר אחריות:</b> מתעלם מסימני הסכנה ("דם אנשים אני שותה", הבעלים, "המרבה לשאול"), מפרש אותם כדברי אהבה, מחליט לעזוב ולא עוזב, מתבולל (טריפה, "בגדי חירות").</p>
+<p><b>אמצעים:</b> רמזים מטרימים, השמות (יוסף והלני), החלום (הסכין, הלב שהופך לאבן ולקרח).</p>
+<p><b>לקיחת אחריות:</b> קריאת שמע בחוץ, בגלל הצלם. "כמה נתרחקתי". הוא ניצל ומטפל בה.</p>
+<p><b>אבל:</b> סוף מעגלי. הוא חוזר לנדוד ולא בטוח שלמד. <b>אלגוריה:</b> אחריות היהודים לגורלם בגולה (1942).</p>`},
+ {w:'adn', q:`לעיתים יש לפרטים בסיפור משמעות סמויה מעבר למשמעות הגלויה. הדגימו אמירה זו על פי סיפור שלמדתם. השתמשו לפחות בשלושה אמצעי עיצוב.`,
+  sk:`<p><b>פתיחה:</b> האלגוריה ליחסי יהודים וגויים. הרובד הגלוי והרובד הסמוי.</p>
+<p><b>אמצעי 1, השמות:</b> יוסף (אלוזיה מקראית ניגודית, פותר החלומות שעמד בפיתוי) והלני (הלניזם והלנה מטרויה).</p>
+<p><b>אמצעי 2, מוטיב הסכין:</b> 4 הופעות. ברובד הסמוי: היצר הרצחני של הגויים כלפי היהודים. וגם אירוניה: היהודי מוכר את כלי הרצח.</p>
+<p><b>אמצעי 3, מוטיב הסעודה:</b> טריפה והתבוללות. ובסוף היא מקיאה: החייתיות שלה מול האנושיות שלו.</p>
+<p><b>אמצעי 4, מוטיב הדרך והאור:</b> האור כמשיכה לנצרות. "כמה נתרחקתי".</p>
+<p><b>המסר:</b> התבוללות לא מצילה, ורק החזרה לזהות מצילה. האנטישמיות והשואה.</p>`},
+ {w:'adn', q:`האם בסיפור קצר שלמדתם העלילה מסתיימת בפתרון או בחוסר מוצא? נמקו והדגימו. (חורף 2018)`,
+  sk:`<p><b>פתיחה</b> על האדונית והרוכל.</p>
+<p><b>פתרון (סגור):</b> יוסף ניצל, הלני מתה, הוא קובר אותה בגג והעופות טורפים אותה. מבנה מעגלי של צדק.</p>
+<p><b>חוסר מוצא (פתוח):</b> יוסף לוקח את קופתו וחוזר לנדודיו. הוא לא חזר באמת ליהדות ולא למד לקח. ברובד הסמוי: היהודים ממשיכים לחיות בין הגויים.</p>
+<p><b>אמצעים:</b> מבנה מעגלי (הגג, הסכין, הבישול, החורף), מוטיב הדרך.</p>
+<p>עמדה מנומקת: לדוגמה, פתרון חלקי בעלילה וחוסר מוצא במשמעות.</p>`}
+];
+
+// ---------- study plan ----------
+const PLAN = [
+ {day:'חמישי 5.11 (ערב)', items:[
+   'לקרוא את לשונית "המבחן": מבנה, איך כותבים ומה אסור',
+   'לקרוא את סיכום אנטיגונה מתחילתו ועד סופו',
+   'כרטיסיות של אנטיגונה, סבב אחד',
+   'בוחן אנטיגונה, ולחזור על הטעויות'
+ ]},
+ {day:'שישי 6.11', items:[
+   'שיעור החזרה עם ענבר: לרשום את מה שהיא מדגישה',
+   'לצפות בחלקים מההצגה או לעבור על הטבלה המסכמת שלה (היבריס)',
+   'לכתוב תשובה מלאה על שאלת אנטיגונה עם טיימר (45 דקות)',
+   'לקרוא את סיכום יגון, הסיפור העיקרי',
+   'בוחן יגון'
+ ]},
+ {day:'שבת 7.11', items:[
+   'לכתוב תשובה מלאה על שאלת יגון עם טיימר',
+   'לקרוא את סיפור הגיבוי (צפירה או האדונית והרוכל) ולעשות את הבוחן שלו',
+   'לשנן בעל פה פתיחה לכל יצירה',
+   'כרטיסיות "כללי" (מושגים), ולסיים את כל מה שסומן "לא ידעתי"',
+   'בוחן "הכול" אחד אחרון',
+   'ללכת לישון בזמן'
+ ]},
+ {day:'ראשון 8.11 (בוקר)', items:[
+   'לקרוא שוב את הפתיחות ואת רשימת "מה אסור"',
+   'להביא עט כחול או שחור ומרקרים'
+ ]}
+];
+
+// ---------- countdown ----------
+(function(){
+  const exam = new Date(2026,10,8,8,0,0);
+  const now = new Date();
+  const days = Math.ceil((new Date(2026,10,8) - new Date(now.getFullYear(),now.getMonth(),now.getDate()))/86400000);
+  const c = $('#countdown');
+  if(days > 1) c.innerHTML = days + '<span>ימים למבחן</span>';
+  else if(days === 1) c.innerHTML = 'מחר<span>המבחן</span>';
+  else if(days === 0) c.innerHTML = 'היום<span>בהצלחה!</span>';
+  else c.innerHTML = '✓<span>המבחן עבר</span>';
+})();
+
+// ---------- tabs / routing ----------
+const VIEWS = ['exam','plan','works','cards','quiz','practice'];
+function show(v){
+  if(!VIEWS.includes(v)) v = 'exam';
+  VIEWS.forEach(n => { $('#v-'+n).hidden = n !== v; });
+  document.querySelectorAll('nav.tabs button').forEach(b => b.setAttribute('aria-selected', b.dataset.view === v));
+  if(v === 'exam') renderTiles();
+}
+document.querySelectorAll('nav.tabs button').forEach(b => b.addEventListener('click', () => {
+  if(location.hash !== '#'+b.dataset.view) location.hash = b.dataset.view; else show(b.dataset.view);
+  window.scrollTo({top:0});
+}));
+window.addEventListener('hashchange', () => show(location.hash.slice(1)));
+
+// ---------- progress tiles ----------
+function renderTiles(){
+  const scores = store.get('quiz', {});
+  const known = store.get('known', {});
+  const box = $('#progress-tiles'); box.innerHTML = '';
+  Object.keys(WORKS).forEach(k => {
+    const qs = QUIZ.filter(q => q[0] === k).length;
+    const s = scores[k] || {right:0, seen:0};
+    const cs = CARDS.filter(c => c[0] === k);
+    const kn = cs.filter(c => known[c[1]]).length;
+    const pct = Math.round(((s.seen ? s.right/qs : 0) * 0.5 + (cs.length ? kn/cs.length : 0) * 0.5) * 100);
+    const t = el('div', {class:'stat'});
+    t.innerHTML = `<b>${WORKS[k].name}</b><small>בוחן: ${s.right}/${qs} · כרטיסיות: ${kn}/${cs.length}</small><div class="bar"><i style="width:${pct}%"></i></div>`;
+    box.appendChild(t);
+  });
+}
+
+// ---------- plan ----------
+function renderPlan(){
+  const done = store.get('plan', {});
+  const list = $('#plan-list'); list.innerHTML = '';
+  PLAN.forEach((d, di) => {
+    const s = el('div', {class:'sheet day'});
+    s.appendChild(el('h3', {}, d.day));
+    d.items.forEach((it, ii) => {
+      const id = `p${di}_${ii}`;
+      const lab = el('label', {class:'check' + (done[id] ? ' done' : ''), for:id});
+      lab.innerHTML = `<input type="checkbox" id="${id}" ${done[id] ? 'checked' : ''}><span>${it}</span>`;
+      lab.querySelector('input').addEventListener('change', e => {
+        const cur = store.get('plan', {}); cur[id] = e.target.checked; store.set('plan', cur);
+        lab.classList.toggle('done', e.target.checked);
+      });
+      s.appendChild(lab);
+    });
+    list.appendChild(s);
+  });
+}
+$('#plan-reset').addEventListener('click', () => { store.set('plan', {}); renderPlan(); });
+
+// ---------- works ----------
+let curWork = store.get('work', 'ant');
+function renderWorks(){
+  const chips = $('#work-chips'); chips.innerHTML = '';
+  Object.keys(WORKS).forEach(k => {
+    const b = el('button', {class:'chip', 'aria-pressed': k === curWork}, WORKS[k].name);
+    b.addEventListener('click', () => { curWork = k; store.set('work', k); renderWorks(); });
+    chips.appendChild(b);
+  });
+  $('#work-body').innerHTML = SUMMARY[curWork];
+}
+
+// ---------- flashcards ----------
+const FILTERS = {all:'הכול', ant:'אנטיגונה', yag:'יגון', tsf:'צפירה', adn:'האדונית והרוכל', gen:'מושגים כלליים', unk:'רק "לא ידעתי"'};
+let cardFilter = 'all', deck = [], cardIdx = 0, flipped = false;
+function buildDeck(){
+  const known = store.get('known', {});
+  deck = CARDS.filter(c => {
+    if(cardFilter === 'all') return true;
+    if(cardFilter === 'gen') return c[0] === 'all';
+    if(cardFilter === 'unk') return known[c[1]] === false;
+    return c[0] === cardFilter;
+  });
+  if(cardFilter !== 'unk') deck = deck.filter(c => known[c[1]] !== true).concat(deck.filter(c => known[c[1]] === true));
+  cardIdx = 0; flipped = false; renderCard();
+}
+function renderCardChips(){
+  const chips = $('#card-chips'); chips.innerHTML = '';
+  Object.keys(FILTERS).forEach(k => {
+    const b = el('button', {class:'chip', 'aria-pressed': k === cardFilter}, FILTERS[k]);
+    b.addEventListener('click', () => { cardFilter = k; renderCardChips(); buildDeck(); });
+    chips.appendChild(b);
+  });
+}
+function renderCard(){
+  const f = $('#flash'); const known = store.get('known', {});
+  const total = CARDS.length, kn = Object.values(known).filter(v => v === true).length;
+  $('#card-meta').textContent = `ידועים: ${kn}/${total}`;
+  if(!deck.length){
+    f.classList.remove('flipped');
+    $('#flash-label').textContent = '';
+    $('#flash-text').innerHTML = '<span class="back">אין כרטיסים בסינון הזה. בחרו סינון אחר.</span>';
+    return;
+  }
+  const c = deck[cardIdx % deck.length];
+  const tag = c[0] === 'all' ? 'מושג כללי' : WORKS[c[0]].name;
+  f.classList.toggle('flipped', flipped);
+  $('#flash-label').textContent = `${tag} · ${(cardIdx % deck.length) + 1}/${deck.length}` + (known[c[1]] === true ? ' · ✓' : '');
+  $('#flash-text').innerHTML = flipped ? `<span class="back">${c[2]}</span>` : `<span class="front">${c[1]}</span>`;
+}
+$('#flash').addEventListener('click', () => { flipped = !flipped; renderCard(); });
+function mark(v){
+  if(!deck.length) return;
+  const c = deck[cardIdx % deck.length]; const known = store.get('known', {});
+  known[c[1]] = v; store.set('known', known);
+  if(cardFilter === 'unk' && v){ deck.splice(cardIdx % deck.length, 1); }
+  else cardIdx++;
+  if(deck.length) cardIdx = cardIdx % deck.length;
+  flipped = false; renderCard();
+}
+$('#card-yes').addEventListener('click', () => mark(true));
+$('#card-no').addEventListener('click', () => mark(false));
+$('#card-reset').addEventListener('click', () => { store.set('known', {}); buildDeck(); });
+
+// ---------- quiz ----------
+const QFILTERS = {all:'הכול', ant:'אנטיגונה', yag:'יגון', tsf:'צפירה', adn:'האדונית והרוכל'};
+let qFilter = 'all', qList = [], qIdx = 0, qRight = 0, qAnswered = false;
+function shuffle(a){ a = a.slice(); for(let i = a.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+function startQuiz(){
+  qList = shuffle(QUIZ.filter(q => qFilter === 'all' || q[0] === qFilter));
+  qIdx = 0; qRight = 0; renderQ();
+}
+function renderQuizChips(){
+  const chips = $('#quiz-chips'); chips.innerHTML = '';
+  Object.keys(QFILTERS).forEach(k => {
+    const b = el('button', {class:'chip', 'aria-pressed': k === qFilter}, QFILTERS[k]);
+    b.addEventListener('click', () => { qFilter = k; renderQuizChips(); startQuiz(); });
+    chips.appendChild(b);
+  });
+}
+function saveScore(){
+  const per = {};
+  qList.slice(0, qIdx).forEach(q => { per[q[0]] = per[q[0]] || {right:0, seen:0}; per[q[0]].seen++; if(q.correct) per[q[0]].right++; });
+  const scores = store.get('quiz', {});
+  for(const k in per){ const prev = scores[k] || {right:0, seen:0}; if(per[k].right >= prev.right || per[k].seen >= prev.seen) scores[k] = per[k]; }
+  store.set('quiz', scores);
+}
+function renderQ(){
+  const box = $('#quiz-box'); box.innerHTML = '';
+  if(qIdx >= qList.length){
+    saveScore();
+    const pct = Math.round(qRight / qList.length * 100);
+    box.innerHTML = `<p class="qtext">סיימתם: ${qRight} מתוך ${qList.length} (${pct}%)</p><p class="muted">${pct >= 85 ? 'מצוין. עכשיו תרגלו כתיבה בלשונית "שאלות בגרות".' : pct >= 65 ? 'לא רע. כדאי לחזור לסיכום על הנושאים שטעיתם בהם.' : 'כדאי לקרוא שוב את הסיכום ולנסות שוב.'}</p>`;
+    const again = el('button', {class:'btn'}, 'עוד סבב'); again.addEventListener('click', startQuiz); box.appendChild(again);
+    return;
+  }
+  const q = qList[qIdx]; qAnswered = false;
+  box.appendChild(el('div', {class:'qmeta'}, `${WORKS[q[0]].name} · שאלה ${qIdx + 1} מתוך ${qList.length} · נכונות: ${qRight}`));
+  box.appendChild(el('div', {class:'qtext'}, q[1]));
+  const opts = el('div', {class:'opts'});
+  q[2].forEach((o, i) => {
+    const b = el('button', {class:'opt'}); b.textContent = o;
+    b.addEventListener('click', () => {
+      if(qAnswered) return; qAnswered = true;
+      q.correct = i === q[3]; if(q.correct) qRight++;
+      opts.querySelectorAll('button').forEach((bb, j) => { bb.disabled = true; if(j === q[3]) bb.classList.add('right'); else if(j === i) bb.classList.add('wrong'); });
+      const ex = el('div', {class:'explain'}, `<b>${q.correct ? 'נכון.' : 'לא נכון.'}</b> ${q[4]}`);
+      box.appendChild(ex);
+      const next = el('button', {class:'btn', style:'margin-top:12px'}, qIdx + 1 < qList.length ? 'לשאלה הבאה' : 'לתוצאה');
+      next.addEventListener('click', () => { qIdx++; saveScore(); renderQ(); });
+      box.appendChild(next); next.focus();
+    });
+    opts.appendChild(b);
+  });
+  box.appendChild(opts);
+}
+
+// ---------- practice ----------
+let pqIdx = store.get('pq', 0);
+function renderPracticeSelect(){
+  const s = $('#pq-select'); s.innerHTML = '';
+  PRACTICE.forEach((p, i) => { const o = el('option', {value:i}); o.textContent = `${WORKS[p.w].name}: ${p.q.slice(0, 60)}…`; s.appendChild(o); });
+  s.value = pqIdx;
+  s.addEventListener('change', () => { pqIdx = +s.value; store.set('pq', pqIdx); renderPractice(); });
+}
+function renderPractice(){
+  const p = PRACTICE[pqIdx];
+  $('#pq-box').innerHTML = `<span class="tag">${WORKS[p.w].kind === 'מחזה' ? 'פרק המחזה' : 'פרק הסיפור הקצר'}</span><p class="qtext" style="margin-top:8px">${p.q}</p>` +
+    (p.w !== 'ant' ? `<p class="small muted">השאלה כללית. השלד כתוב על ${WORKS[p.w].name}, אבל אפשר לענות עליה על כל סיפור שלמדתם.</p>` : '');
+  $('#pq-skeleton').hidden = true;
+  $('#pq-skeleton').innerHTML = '<h3>שלד תשובה</h3>' + p.sk;
+  $('#pq-reveal').textContent = 'הצגת שלד התשובה';
+  $('#pq-feedback').hidden = true;
+  const drafts = store.get('drafts', {});
+  $('#pq-answer').value = drafts[pqIdx] || '';
+  updateWC();
+}
+function updateWC(){ const n = $('#pq-answer').value.trim().split(/\s+/).filter(Boolean).length; $('#wordcount').textContent = `${n} מילים · כשני עמודים ≈ 400–500 מילים`; }
+$('#pq-answer').addEventListener('input', () => { const d = store.get('drafts', {}); d[pqIdx] = $('#pq-answer').value; store.set('drafts', d); updateWC(); });
+$('#pq-reveal').addEventListener('click', () => {
+  const s = $('#pq-skeleton'); s.hidden = !s.hidden;
+  $('#pq-reveal').textContent = s.hidden ? 'הצגת שלד התשובה' : 'הסתרת השלד';
+});
+// timer
+let tLeft = 45 * 60, tRun = null;
+function tShow(){ const m = Math.floor(tLeft / 60), s = tLeft % 60; $('#timer').textContent = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`; }
+$('#timer-btn').addEventListener('click', () => {
+  if(tRun){ clearInterval(tRun); tRun = null; $('#timer-btn').textContent = 'המשך'; return; }
+  $('#timer-btn').textContent = 'עצירה';
+  tRun = setInterval(() => { tLeft = Math.max(0, tLeft - 1); tShow(); if(!tLeft){ clearInterval(tRun); tRun = null; $('#timer').textContent = 'הזמן נגמר'; $('#timer-btn').textContent = 'התחלת טיימר'; } }, 1000);
+});
+$('#timer-reset').addEventListener('click', () => { clearInterval(tRun); tRun = null; tLeft = 45 * 60; tShow(); $('#timer-btn').textContent = 'התחלת טיימר'; });
+
+// AI feedback (only when the viewer can ask Claude)
+let sampleFn = null;
+(async () => {
+  try{
+    if(window.claude && window.claude.use){
+      sampleFn = await window.claude.use('sample');
+      if(sampleFn) $('#pq-ai').hidden = false;
+    }
+  }catch(e){}
+})();
+let aiCtl = null;
+$('#pq-ai').addEventListener('click', async () => {
+  const ans = $('#pq-answer').value.trim();
+  const fb = $('#pq-feedback'), out = $('#pq-feedback-text');
+  fb.hidden = false;
+  if(ans.split(/\s+/).length < 40){ out.textContent = 'כתבו לפחות פסקת פתיחה ופסקה אחת מגוף התשובה, ואז בקשו משוב.'; return; }
+  const p = PRACTICE[pqIdx];
+  const skel = p.sk.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
+  const prompt = `אתה מורה לספרות בתיכון בישראל ובודק תשובה של תלמיד יב לשאלת בגרות (שאלון 8281). כתוב משוב בעברית, קצר וישיר, בלי טבלאות.
+
+היצירה: "${WORKS[p.w].name}" מאת ${WORKS[p.w].by}.
+השאלה: ${p.q}
+
+קריטריונים של המורה:
+- פתיחה של 4–5 שורות: שם היצירה, שם היוצר, הנושא, כמה משפטים על התוכן, התייחסות לסיום ושמות הדמויות הראשיות. לא תקציר מלא.
+- גוף התשובה עונה לפי סדר השאלה. כל טענה בפסקה נפרדת עם הסבר ודוגמה מהיצירה במילים של התלמיד.
+- שילוב אמצעים אמנותיים (מוטיב, אנלוגיה, רמז מטרים, האנשה, אירוניה וכו') גם אם לא התבקשו.
+- אסור: מספור או רשימות, טבלה, סלנג, סיכום עלילה שאינו קשור לשאלה, חיבור סעיפים נפרדים.
+- אורך: כשני עמודים.
+
+נקודות שתשובה טובה צריכה לכלול (שלד המורה): ${skel}
+
+התשובה של התלמיד:
+"""
+${ans}
+"""
+
+החזר את המשוב במבנה הזה:
+1. הערכה כללית במשפט אחד והערכת ציון גסה מתוך 100.
+2. מה טוב (2–3 נקודות).
+3. מה חסר או לא מדויק עובדתית (פרטים מהיצירה, מושגים, אמצעים).
+4. תיקון אחד קונקרטי לפתיחה, אם צריך.
+5. שלושה דברים לשפר בתשובה הבאה.`;
+  out.textContent = 'Claude קורא את התשובה…';
+  if(aiCtl) aiCtl.abort(); aiCtl = new AbortController();
+  $('#pq-ai').disabled = true;
+  try{
+    const r = await sampleFn(prompt, {signal: aiCtl.signal, onText: ({text}) => { out.textContent = text; }});
+    out.textContent = r.text;
+  }catch(e){
+    if(e && e.code === 'not_granted'){ out.textContent = 'לא ניתנה הרשאה לשאול את Claude. אפשר להשוות את התשובה לשלד במקום זאת.'; $('#pq-ai').hidden = true; }
+    else if(e && e.code === 'rate_limited') out.textContent = 'יותר מדי בקשות כרגע. נסו שוב בעוד כמה דקות.';
+    else out.textContent = (e && e.text) || 'לא התקבל משוב. נסו שוב בעוד רגע.';
+  }finally{ $('#pq-ai').disabled = false; }
+});
+
+// ---------- init ----------
+renderPlan(); renderWorks(); renderCardChips(); buildDeck(); renderQuizChips(); startQuiz(); renderPracticeSelect(); renderPractice();
+show(location.hash.slice(1) || 'exam');
+</script>
