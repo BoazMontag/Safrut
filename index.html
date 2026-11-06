@@ -163,7 +163,95 @@ textarea{min-height:340px;line-height:30px;padding-top:6px;background-image:repe
 .muted{color:var(--label-2)}
 .small{font-size:14px}
 @media (prefers-reduced-motion: reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* ===== motion & touch (inspired by liquidglassdesign.com: refraction, moving specular, morphing lens) ===== */
+:root{--spring:cubic-bezier(.34,1.56,.64,1); --ease-out:cubic-bezier(.16,1,.3,1); --bloom:rgba(35,64,184,.16); --lens:rgba(110,122,160,.17); --lens-edge:rgba(255,255,255,.95); --sheen:rgba(255,255,255,.85)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bloom:rgba(170,190,255,.18); --lens:rgba(255,255,255,.13); --lens-edge:rgba(255,255,255,.22); --sheen:rgba(255,255,255,.28)}}
+:root[data-theme="dark"]{--bloom:rgba(170,190,255,.18); --lens:rgba(255,255,255,.13); --lens-edge:rgba(255,255,255,.22); --sheen:rgba(255,255,255,.28)}
+
+/* liquid refraction on the floating bars (Chromium renders the SVG displacement; others keep the plain blur) */
+nav.tabbar.glass, header.bar.scrolled{-webkit-backdrop-filter:blur(26px) saturate(1.6);backdrop-filter:blur(26px) saturate(1.6)}
+@supports (backdrop-filter: url(#lg-refract)){
+  nav.tabbar.glass{backdrop-filter:url(#lg-refract) blur(14px) saturate(1.7) brightness(1.04)}
+}
+/* moving specular highlight */
+nav.tabbar{overflow:visible;isolation:isolate}
+nav.tabbar::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:2;
+  background:radial-gradient(120px 46px at var(--mx,70%) 0%, var(--sheen), transparent 70%);opacity:.55;mix-blend-mode:soft-light;transition:opacity .3s}
+nav.tabbar::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:2;
+  box-shadow:inset 0 1px 0 var(--lens-edge), inset 0 -1px 0 rgba(255,255,255,.08)}
+/* the lens: one glass droplet that slides and stretches between tabs */
+.lens{position:absolute;top:6px;bottom:6px;left:0;width:0;border-radius:999px;z-index:0;pointer-events:none;
+  background:var(--lens);box-shadow:inset 0 1px 0 var(--lens-edge), 0 4px 14px rgba(20,30,80,.12);
+  transition:transform .55s var(--spring), width .55s var(--spring), scale .35s var(--spring)}
+.lens.moving{scale:1.12 .92}
+.lens.pressed{scale:1.1}
+nav.tabbar button{position:relative;z-index:1;background:none!important;transition:color .25s, transform .4s var(--spring)}
+nav.tabbar button:active{transform:scale(.92)}
+nav.tabbar button[aria-selected="true"] svg{animation:icon-pop .5s var(--spring)}
+@keyframes icon-pop{0%{transform:scale(.7)}60%{transform:scale(1.15)}100%{transform:scale(1)}}
+
+/* press + light bloom for every touchable thing */
+.btn,.chip,.opt,.flash,summary,.check,.pill{position:relative;overflow:hidden;-webkit-tap-highlight-color:transparent;
+  transition:transform .5s var(--spring), background .25s, border-color .25s, color .25s}
+summary{overflow:visible;border-radius:12px;margin-inline:-8px;padding-inline:8px}
+.btn:active:not(:disabled),.chip:active,.opt:active:not(:disabled){transform:scale(.95);transition-duration:.12s}
+.flash:active{transform:scale(.98);transition-duration:.15s}
+summary:active,.check:active{transform:scale(.985);transition-duration:.12s}
+.btn{--bloom:rgba(255,255,255,.45)}
+.chip[aria-pressed="true"]{--bloom:rgba(255,255,255,.35)}
+.btn::after,.chip::after,.opt::after,.flash::after,summary::before,.check::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:radial-gradient(circle at var(--x,50%) var(--y,50%), var(--bloom) 0, transparent 60%);opacity:0;transition:opacity .6s var(--ease-out)}
+.lit::after,summary.lit::before{opacity:1!important;transition:opacity .06s!important}
+.opt.right::after,.opt.wrong::after{position:static;inset:auto;background:none;opacity:1;transition:none}
+.btn:hover:not(:disabled){filter:brightness(1.06)}
+.chip[aria-pressed="true"]{animation:chip-on .45s var(--spring)}
+@keyframes chip-on{0%{transform:scale(.9)}100%{transform:scale(1)}}
+
+/* checkbox pop */
+.check input:checked{animation:check-pop .45s var(--spring)}
+@keyframes check-pop{0%{transform:scale(.6)}60%{transform:scale(1.2)}100%{transform:scale(1)}}
+
+/* views & disclosures glide in */
+section.view:not([hidden]){animation:view-in .45s var(--ease-out) both}
+@keyframes view-in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+details[open]>div{animation:fold-in .35s var(--ease-out)}
+@keyframes fold-in{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+summary::after{transition:transform .35s var(--spring)}
+
+/* flashcard 3D flip */
+.card-stage{perspective:1100px}
+.flash{transform-style:preserve-3d}
+.flash.flip-out{transform:rotateY(90deg) scale(.96);transition:transform .18s ease-in}
+.flash.flip-in{animation:flip-in .5s var(--spring)}
+@keyframes flip-in{from{transform:rotateY(-90deg) scale(.96)}to{transform:none}}
+.flash.swipe-yes{animation:swipe-yes .32s ease-in forwards}
+.flash.swipe-no{animation:swipe-no .32s ease-in forwards}
+@keyframes swipe-yes{to{transform:translateX(-60%) rotate(-8deg);opacity:0}}
+@keyframes swipe-no{to{transform:translateX(60%) rotate(8deg);opacity:0}}
+.flash.deal{animation:deal .45s var(--spring)}
+@keyframes deal{from{transform:translateY(18px) scale(.95);opacity:0}to{transform:none;opacity:1}}
+
+/* quiz feedback */
+.opt.right{animation:pop .5s var(--spring)}
+@keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.035)}100%{transform:scale(1)}}
+.opt.wrong{animation:shake .42s ease}
+@keyframes shake{0%,100%{transform:none}20%{transform:translateX(-7px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(2px)}}
+.explain{animation:view-in .4s var(--ease-out) both}
+.qtext{animation:view-in .4s var(--ease-out) both}
+
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more){
+  nav.tabbar.glass{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+  .lens{background:var(--accent-soft);box-shadow:none}
+  nav.tabbar::before{display:none}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none!important}
+  .lens{transition:none}
+  .btn:active,.chip:active,.opt:active,.flash:active,summary:active,.check:active,nav.tabbar button:active{transform:none}
+}
 </style>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><filter id="lg-refract" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.006 0.02" numOctaves="2" seed="7" result="noise"/><feGaussianBlur in="noise" stdDeviation="2.5" result="soft"/><feDisplacementMap in="SourceGraphic" in2="soft" scale="22" xChannelSelector="R" yChannelSelector="G"/></filter></svg>
 
 <div class="ink" aria-hidden="true"></div>
 <header class="bar" id="bar">
@@ -311,6 +399,7 @@ textarea{min-height:340px;line-height:30px;padding-top:6px;background-image:repe
 </div></main>
 <div class="edge-fade" aria-hidden="true"></div>
 <nav class="tabbar glass" aria-label="ניווט ראשי" role="tablist">
+  <span class="lens" id="lens" aria-hidden="true"></span>
   <button role="tab" data-view="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 3 10.4V21h6.2v-6h5.6v6H21V10.4z"/></svg>בית</button>
   <button role="tab" data-view="works"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5A1.5 1.5 0 0 1 6.5 2H20v15H6.5A2.5 2.5 0 0 0 5 17.5zM6.5 18.5H20V22H6.5a1.75 1.75 0 0 1 0-3.5z"/></svg>סיכומים</button>
   <button role="tab" data-view="cards"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2h11a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM3 6.5V19a3 3 0 0 0 3 3h10.5v-1.8H6A1.2 1.2 0 0 1 4.8 19V6.5z"/></svg>כרטיסיות</button>
@@ -796,6 +885,7 @@ function show(v){
   VIEWS.forEach(n => { $('#v-'+n).hidden = n !== v; });
   document.querySelectorAll('nav.tabbar button').forEach(b => b.setAttribute('aria-selected', b.dataset.view === v));
   $('#bar-title').textContent = TITLES[v];
+  moveLens(v);
   if(v === 'home') renderTiles();
 }
 document.querySelectorAll('nav.tabbar button').forEach(b => b.addEventListener('click', () => {
@@ -803,6 +893,34 @@ document.querySelectorAll('nav.tabbar button').forEach(b => b.addEventListener('
   window.scrollTo({top:0});
 }));
 window.addEventListener('hashchange', () => show(location.hash.slice(1)));
+const lens = $('#lens'); let lensView = null;
+function moveLens(v, instant){
+  const btn = document.querySelector(`nav.tabbar button[data-view="${v}"]`); if(!btn) return;
+  if(lensView === null) instant = true;
+  if(instant) lens.style.transition = 'none';
+  else if(lensView && lensView !== v){ lens.classList.add('moving'); setTimeout(() => lens.classList.remove('moving'), 260); }
+  lens.style.width = btn.offsetWidth + 'px';
+  lens.style.transform = `translateX(${btn.offsetLeft}px)`;
+  if(instant){ lens.offsetWidth; lens.style.transition = ''; }
+  lensView = v;
+}
+window.addEventListener('resize', () => moveLens(lensView, true));
+const tabbar = document.querySelector('nav.tabbar');
+tabbar.addEventListener('pointermove', e => { const r = tabbar.getBoundingClientRect(); tabbar.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%'); });
+tabbar.addEventListener('pointerdown', e => { if(e.target.closest('button')) lens.classList.add('pressed'); });
+['pointerup','pointercancel','pointerleave'].forEach(t => tabbar.addEventListener(t, () => lens.classList.remove('pressed')));
+// light bloom where the finger lands
+const TOUCHABLE = '.btn,.chip,.opt,.flash,summary,.check';
+document.addEventListener('pointerdown', e => {
+  const t = e.target.closest(TOUCHABLE); if(!t || t.disabled) return;
+  const r = t.getBoundingClientRect();
+  t.style.setProperty('--x', (e.clientX - r.left) + 'px'); t.style.setProperty('--y', (e.clientY - r.top) + 'px');
+  t.classList.add('lit');
+  const off = () => { t.classList.remove('lit'); };
+  window.addEventListener('pointerup', off, {once:true}); window.addEventListener('pointercancel', off, {once:true});
+  if(navigator.vibrate && e.pointerType === 'touch') try{ navigator.vibrate(8); }catch(_){}
+}, {passive:true});
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const bar = $('#bar');
 const onScroll = () => bar.classList.toggle('scrolled', window.scrollY > 24);
 window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
@@ -897,9 +1015,23 @@ function renderCard(){
   $('#flash-label').textContent = `${tag} · ${(cardIdx % deck.length) + 1}/${deck.length}` + (known[c[1]] === true ? ' · ✓' : '');
   $('#flash-text').innerHTML = flipped ? `<span class="back">${c[2]}</span>` : `<span class="front">${c[1]}</span>`;
 }
-$('#flash').addEventListener('click', () => { flipped = !flipped; renderCard(); });
+$('#flash').addEventListener('click', () => {
+  const f = $('#flash');
+  if(reduceMotion.matches){ flipped = !flipped; renderCard(); return; }
+  f.classList.remove('flip-in','deal'); f.classList.add('flip-out');
+  setTimeout(() => { flipped = !flipped; renderCard(); f.classList.remove('flip-out'); void f.offsetWidth; f.classList.add('flip-in'); }, 180);
+});
 function mark(v){
   if(!deck.length) return;
+  const f = $('#flash');
+  if(!reduceMotion.matches){
+    f.classList.remove('flip-in','deal'); f.classList.add(v ? 'swipe-yes' : 'swipe-no');
+    setTimeout(() => { f.classList.remove('swipe-yes','swipe-no'); doMark(v); void f.offsetWidth; f.classList.add('deal'); }, 300);
+    return;
+  }
+  doMark(v);
+}
+function doMark(v){
   const c = deck[cardIdx % deck.length]; const known = store.get('known', {});
   known[c[1]] = v; store.set('known', known);
   if(cardFilter === 'unk' && v){ deck.splice(cardIdx % deck.length, 1); }
