@@ -1,157 +1,209 @@
 <title>חזרה לספרות יב10</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Assistant:wght@400;600;700&family=Karantina:wght@700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@700;900&family=Assistant:wght@400;600;700&display=swap">
 <style>
-/* Layout: an exam notebook. Lined paper, blue pen ink (the exam is written in blue pen), red margin rule for warnings. Sticky tab bar, single reading column. */
+/* Layout: iOS-style two layers. Content = opaque inset-grouped cards on a blue "ink bloom" ground (the exam is written in blue pen).
+   Functional layer = glass only: a top bar that frosts on scroll and a floating bottom tab bar. */
 :root{
-  --paper:#f6f8fc; --sheet:#ffffff; --line:#dfe5f1; --ink:#16213d; --muted:#5a6684;
-  --pen:#2340b8; --pen-soft:#e6ebfb; --margin:#c8344b; --margin-soft:#fbe9ec;
-  --good:#16794a; --good-soft:#e2f4ea; --warn:#9a6200; --warn-soft:#fdf1d8;
+  --bg:#f2f3f8; --surface:#ffffff; --surface-2:#f1f2f7; --label:#0d1020; --label-2:#5b6072; --sep:rgba(60,60,67,.16);
+  --accent:#2340b8; --accent-soft:rgba(35,64,184,.10); --on-accent:#ffffff;
+  --red:#b8283f; --red-soft:rgba(196,43,66,.09); --green:#17703f; --green-soft:rgba(26,127,75,.11);
+  --ink-a:rgba(46,84,240,.30); --ink-b:rgba(35,64,184,.20); --ink-c:rgba(90,130,255,.16);
+  --glass:rgba(255,255,255,.58); --glass-edge:rgba(255,255,255,.75); --glass-shadow:0 10px 30px rgba(18,28,80,.14), 0 1px 0 rgba(255,255,255,.6) inset;
   --f-display:"Frank Ruhl Libre","David Libre",Georgia,serif;
-  --f-body:"Assistant","Segoe UI",Arial,sans-serif;
-  --f-hand:"Karantina","Assistant",sans-serif;
-  --r:10px;
+  --f-body:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Hebrew","Assistant","Segoe UI",Arial,sans-serif;
+  --r-card:22px; --r-row:14px;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --paper:#0e1324; --sheet:#151c33; --line:#26304d; --ink:#e4e9f7; --muted:#9aa6c4;
-  --pen:#8fa6ff; --pen-soft:#1f2a50; --margin:#ff7d8f; --margin-soft:#3a1c26;
-  --good:#5fd39a; --good-soft:#17332a; --warn:#f0bb5c; --warn-soft:#352a14; color-scheme:dark}}
+  --bg:#05070d; --surface:#16181f; --surface-2:#22252e; --label:#f4f5f8; --label-2:#a3a8b8; --sep:rgba(120,124,140,.28);
+  --accent:#93a8ff; --accent-soft:rgba(147,168,255,.15); --on-accent:#0b1030;
+  --red:#ff7d90; --red-soft:rgba(255,110,130,.13); --green:#5fd69a; --green-soft:rgba(80,210,140,.13);
+  --ink-a:rgba(60,95,255,.34); --ink-b:rgba(40,70,200,.26); --ink-c:rgba(110,140,255,.14);
+  --glass:rgba(28,30,38,.55); --glass-edge:rgba(255,255,255,.10); --glass-shadow:0 10px 30px rgba(0,0,0,.45), 0 1px 0 rgba(255,255,255,.06) inset;
+  color-scheme:dark}}
 :root[data-theme="dark"]{
-  --paper:#0e1324; --sheet:#151c33; --line:#26304d; --ink:#e4e9f7; --muted:#9aa6c4;
-  --pen:#8fa6ff; --pen-soft:#1f2a50; --margin:#ff7d8f; --margin-soft:#3a1c26;
-  --good:#5fd39a; --good-soft:#17332a; --warn:#f0bb5c; --warn-soft:#352a14; color-scheme:dark}
+  --bg:#05070d; --surface:#16181f; --surface-2:#22252e; --label:#f4f5f8; --label-2:#a3a8b8; --sep:rgba(120,124,140,.28);
+  --accent:#93a8ff; --accent-soft:rgba(147,168,255,.15); --on-accent:#0b1030;
+  --red:#ff7d90; --red-soft:rgba(255,110,130,.13); --green:#5fd69a; --green-soft:rgba(80,210,140,.13);
+  --ink-a:rgba(60,95,255,.34); --ink-b:rgba(40,70,200,.26); --ink-c:rgba(110,140,255,.14);
+  --glass:rgba(28,30,38,.55); --glass-edge:rgba(255,255,255,.10); --glass-shadow:0 10px 30px rgba(0,0,0,.45), 0 1px 0 rgba(255,255,255,.06) inset;
+  color-scheme:dark}
 *{box-sizing:border-box}
 [hidden]{display:none!important}
-body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.65;direction:rtl}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--sheet)}
-a{color:var(--pen)}
-.wrap{max-width:860px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-header.top{background:var(--sheet);border-bottom:1px solid var(--line)}
-header.top .wrap{padding-block:22px 14px;display:flex;flex-wrap:wrap;gap:12px 24px;align-items:end;justify-content:space-between}
-h1{font-family:var(--f-display);font-weight:900;font-size:clamp(28px,6vw,42px);line-height:1.1;margin:0;text-wrap:balance}
-h1 small{display:block;font-family:var(--f-body);font-weight:600;font-size:15px;color:var(--muted);margin-top:6px}
-.count{font-family:var(--f-hand);color:var(--margin);font-size:44px;line-height:1;text-align:center}
-.count span{display:block;font-family:var(--f-body);font-size:13px;color:var(--muted);font-weight:600}
-nav.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--sheet);border-bottom:1px solid var(--line)}
-nav.tabs .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
-nav.tabs button{flex:0 0 auto;font:inherit;font-weight:600;font-size:15px;background:none;border:0;color:var(--muted);padding:12px 12px 10px;border-bottom:3px solid transparent;cursor:pointer}
-nav.tabs button[aria-selected="true"]{color:var(--pen);border-bottom-color:var(--pen)}
-nav.tabs button:focus-visible,button:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--pen);outline-offset:2px}
-main .wrap{padding-block:24px 64px}
-section.view{display:grid;gap:22px}
-h2{font-family:var(--f-display);font-weight:700;font-size:28px;margin:0;line-height:1.2;text-wrap:balance}
-h3{font-family:var(--f-display);font-weight:700;font-size:21px;margin:0 0 6px;text-wrap:balance}
-h4{font-size:16px;margin:14px 0 4px;color:var(--pen)}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--label);font-family:var(--f-body);font-size:17px;line-height:1.6;direction:rtl;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--glass);-webkit-backdrop-filter:blur(24px) saturate(1.5);backdrop-filter:blur(24px) saturate(1.5)}
+a{color:var(--accent)}
+
+/* content-layer ground: blue ink blooming in water */
+.ink{position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+   radial-gradient(60vmax 42vmax at 85% -6%, var(--ink-a), transparent 62%),
+   radial-gradient(48vmax 36vmax at 4% 18%, var(--ink-c), transparent 64%),
+   radial-gradient(70vmax 40vmax at 50% 108%, var(--ink-b), transparent 60%),
+   var(--bg)}
+
+.wrap{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* functional layer: glass */
+.glass{background:var(--glass);-webkit-backdrop-filter:blur(26px) saturate(1.5);backdrop-filter:blur(26px) saturate(1.5);border:1px solid var(--glass-edge);box-shadow:var(--glass-shadow)}
+header.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;transition:background .25s, box-shadow .25s, border-color .25s;border-bottom:1px solid transparent}
+header.bar .wrap{height:52px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.bar-title{font-weight:700;font-size:17px;opacity:0;transform:translateY(4px);transition:opacity .2s, transform .2s}
+.time{unicode-bidi:isolate;direction:ltr;font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar-count{font-size:14px;font-weight:600;color:var(--label-2);font-variant-numeric:tabular-nums}
+header.bar.scrolled{background:var(--glass);-webkit-backdrop-filter:blur(26px) saturate(1.5);backdrop-filter:blur(26px) saturate(1.5);border-bottom-color:var(--sep)}
+header.bar.scrolled .bar-title{opacity:1;transform:none}
+
+nav.tabbar{position:fixed;z-index:25;left:50%;transform:translateX(-50%);bottom:calc(10px + env(safe-area-inset-bottom,0px));
+  width:min(520px, calc(100% - 24px - env(safe-area-inset-left,0px) - env(safe-area-inset-right,0px)));
+  display:grid;grid-template-columns:repeat(5,1fr);gap:2px;padding:6px;border-radius:999px}
+nav.tabbar button{font:inherit;background:none;border:0;color:var(--label);opacity:.78;min-height:54px;border-radius:999px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;cursor:pointer;font-size:12px;font-weight:600;padding:4px 2px;transition:background .2s, color .2s}
+nav.tabbar svg{width:24px;height:24px;fill:currentColor}
+nav.tabbar button[aria-selected="true"]{color:var(--accent);opacity:1;background:var(--accent-soft)}
+.edge-fade{position:fixed;inset:auto 0 0 0;height:calc(110px + env(safe-area-inset-bottom,0px));z-index:24;pointer-events:none;background:linear-gradient(to top, var(--bg) 18%, transparent)}
+
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more){
+  .glass, header.bar.scrolled, body::before{background:var(--surface);-webkit-backdrop-filter:none;backdrop-filter:none;border-color:var(--sep)}
+  .ink{background:var(--bg)}
+}
+@media (prefers-contrast: more){ :root{--label-2:var(--label)} .sheet,.opt,.chip{border:1px solid var(--label-2)} }
+
+/* content */
+main .wrap{padding-block:8px calc(120px + env(safe-area-inset-bottom,0px))}
+section.view{display:grid;gap:20px}
+.large-title{display:grid;gap:6px;padding-top:4px}
+h1,h2{font-family:var(--f-display);font-weight:900;letter-spacing:-.01em;line-height:1.1;margin:0;text-wrap:balance}
+h1{font-size:clamp(34px,8vw,44px)}
+h2{font-size:clamp(30px,7vw,38px)}
+h3{font-size:20px;font-weight:700;margin:0 0 6px;text-wrap:balance}
+h4{font-size:15px;font-weight:700;margin:16px 0 4px;color:var(--accent)}
 p{margin:0 0 10px}
-.lede{color:var(--muted);max-width:65ch;margin:0}
-.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:var(--r);padding:18px 18px 16px;position:relative;min-width:0}
-.ruled{background-image:linear-gradient(var(--sheet),var(--sheet)),repeating-linear-gradient(to bottom,transparent 0 27px,var(--line) 27px 28px)}
-.marginal{border-inline-start:3px solid var(--margin);padding-inline-start:14px;background:var(--margin-soft);border-radius:0 var(--r) var(--r) 0;padding-block:12px}
-.marginal strong{color:var(--margin)}
-.inkbox{background:var(--pen-soft);border-radius:var(--r);padding:14px 16px}
+.lede{color:var(--label-2);max-width:62ch;margin:0;font-size:16px}
+.meta-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;padding:6px 12px;border-radius:999px;background:var(--surface);color:var(--label)}
+.pill.accent{background:var(--accent);color:var(--on-accent)}
+.section-label{font-size:13px;font-weight:600;color:var(--label-2);margin:4px 4px -12px}
+
+.sheet{background:var(--surface);border-radius:var(--r-card);padding:18px 18px 14px;min-width:0}
+.marginal{background:var(--red-soft);border-radius:var(--r-card);padding:16px 18px}
+.marginal strong{color:var(--red)}
+.inkbox{background:var(--accent-soft);border-radius:var(--r-card);padding:16px 18px}
 ul,ol{margin:0 0 8px;padding-inline-start:22px}
-li{margin-bottom:4px}
-.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:16px}
-.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
-.stat{background:var(--sheet);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px}
-.stat b{display:block;font-family:var(--f-display);font-size:18px}
-.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-top:8px}
-.bar i{display:block;height:100%;background:var(--pen);width:0;transition:width .4s}
-.stat small{color:var(--muted);font-variant-numeric:tabular-nums}
-.btn{font:inherit;font-weight:600;border-radius:8px;border:1px solid var(--pen);background:var(--pen);color:var(--sheet);padding:8px 16px;cursor:pointer}
-.btn.ghost{background:transparent;color:var(--pen)}
-.btn:disabled{opacity:.5;cursor:default}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{font:inherit;font-size:15px;font-weight:600;border:1px solid var(--line);background:var(--sheet);color:var(--ink);border-radius:999px;padding:5px 14px;cursor:pointer}
-.chip[aria-pressed="true"]{background:var(--pen);color:var(--sheet);border-color:var(--pen)}
-details{border-top:1px solid var(--line);padding-block:10px}
+li{margin-bottom:5px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px}
+.stat-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (min-width:640px){.stat-row{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.stat{background:var(--surface);border-radius:18px;padding:12px 14px;min-width:0}
+.stat b{display:block;font-size:15px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.stat small{color:var(--label-2);font-size:13px;font-variant-numeric:tabular-nums}
+.meter{height:6px;background:var(--surface-2);border-radius:3px;overflow:hidden;margin-top:8px}
+.meter i{display:block;height:100%;background:var(--accent);width:0;border-radius:3px;transition:width .4s}
+
+.btn{font:inherit;font-weight:600;font-size:16px;border-radius:999px;border:0;background:var(--accent);color:var(--on-accent);min-height:44px;padding:0 20px;cursor:pointer}
+.btn.ghost{background:var(--accent-soft);color:var(--accent)}
+.btn.small{font-size:14px;min-height:36px;padding:0 14px}
+.btn:disabled{opacity:.45;cursor:default}
+.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;margin-inline:-2px;padding-inline:2px}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;font:inherit;font-size:15px;font-weight:600;border:0;background:var(--surface);color:var(--label);border-radius:999px;min-height:38px;padding:0 16px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--label);color:var(--surface)}
+button:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+/* disclosure rows */
+details{border-top:1px solid var(--sep);padding-block:12px}
 details:first-of-type{border-top:0}
-summary{cursor:pointer;font-weight:700;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:8px}
+summary{cursor:pointer;font-weight:700;font-size:17px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:8px;min-height:28px}
 summary::-webkit-details-marker{display:none}
-summary::after{content:"+";color:var(--pen);font-weight:700}
-details[open]>summary::after{content:"–"}
-details>div{padding-top:8px}
-.tag{display:inline-block;font-size:13px;font-weight:700;color:var(--pen);background:var(--pen-soft);border-radius:4px;padding:1px 8px;margin-inline-end:6px}
-.quote{font-family:var(--f-display);font-size:17px;border-inline-start:2px solid var(--pen);padding-inline-start:10px;margin:6px 0}
+summary::after{content:"";width:8px;height:8px;border-left:2px solid var(--label-2);border-bottom:2px solid var(--label-2);transform:rotate(45deg);transition:transform .2s;flex:0 0 auto;margin-inline-end:4px}
+details[open]>summary::after{transform:rotate(-45deg)}
+details>div{padding-top:10px}
+.tag{display:inline-block;font-size:13px;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:6px;padding:1px 8px;margin-inline-end:6px}
+.quote{font-family:var(--f-display);font-size:17px;line-height:1.7;background:var(--surface-2);border-radius:var(--r-row);padding:12px 14px;margin:6px 0}
 table{border-collapse:collapse;width:100%;font-size:15px}
-th,td{border:1px solid var(--line);padding:6px 8px;text-align:start;vertical-align:top}
-th{background:var(--pen-soft)}
+th,td{border-bottom:1px solid var(--sep);padding:8px;text-align:start;vertical-align:top}
+th{color:var(--label-2);font-weight:600;font-size:13px}
 .tscroll{overflow-x:auto}
+
 /* plan */
-.day{display:grid;gap:6px}
-.check{display:flex;gap:10px;align-items:flex-start;cursor:pointer;padding:4px 0}
-.check input{margin-top:6px;width:18px;height:18px;accent-color:var(--pen);flex:0 0 auto}
-.check.done span{text-decoration:line-through;color:var(--muted)}
+.day{display:grid;gap:2px}
+.check{display:flex;gap:12px;align-items:flex-start;cursor:pointer;padding:8px 0;border-top:1px solid var(--sep);min-height:44px}
+.day h3+.check{border-top:0}
+.check input{margin-top:4px;width:22px;height:22px;accent-color:var(--accent);flex:0 0 auto}
+.check.done span{text-decoration:line-through;color:var(--label-2)}
+
 /* flashcards */
-.card-stage{perspective:1200px}
-.flash{width:100%;min-height:240px;border:1px solid var(--line);border-radius:14px;background:var(--sheet);cursor:pointer;display:grid;place-items:center;text-align:center;padding:28px 22px;font:inherit;color:var(--ink);position:relative}
-.flash .face-label{position:absolute;top:10px;inset-inline-start:14px;font-size:13px;color:var(--muted);font-weight:600}
-.flash .front{font-family:var(--f-display);font-size:clamp(24px,5vw,34px);font-weight:700}
-.flash .back{font-size:18px;max-width:58ch}
-.flash.flipped{background:var(--pen-soft)}
+.flash{width:100%;min-height:260px;border:0;border-radius:28px;background:var(--surface);cursor:pointer;display:grid;place-items:center;text-align:center;padding:36px 22px;font:inherit;color:var(--label);position:relative;transition:background .25s}
+.flash .face-label{position:absolute;top:14px;inset-inline-start:18px;font-size:13px;color:var(--label-2);font-weight:600}
+.flash .front{font-family:var(--f-display);font-size:clamp(26px,6vw,34px);font-weight:900}
+.flash .back{font-size:18px;max-width:52ch;line-height:1.65}
+.flash.flipped{background:var(--accent-soft)}
 .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+
 /* quiz */
-.opts{display:grid;gap:8px;margin-top:10px}
-.opt{font:inherit;text-align:start;background:var(--sheet);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:10px 14px;cursor:pointer}
-.opt:hover:not(:disabled){border-color:var(--pen)}
-.opt.right{background:var(--good-soft);border-color:var(--good);color:var(--ink)}
-.opt.wrong{background:var(--margin-soft);border-color:var(--margin)}
+.opts{display:grid;gap:8px;margin-top:14px}
+.opt{font:inherit;text-align:start;background:var(--surface-2);color:var(--label);border:2px solid transparent;border-radius:var(--r-row);padding:12px 14px;min-height:48px;cursor:pointer;display:flex;justify-content:space-between;gap:10px;align-items:center}
+.opt:hover:not(:disabled){border-color:var(--accent-soft)}
+.opt.right{background:var(--green-soft);border-color:var(--green)}
+.opt.right::after{content:"✓ נכון";color:var(--green);font-weight:700;font-size:14px;flex:0 0 auto}
+.opt.wrong{background:var(--red-soft);border-color:var(--red)}
+.opt.wrong::after{content:"✗ הבחירה שלכם";color:var(--red);font-weight:700;font-size:14px;flex:0 0 auto}
 .opt:disabled{cursor:default}
-.explain{margin-top:12px;padding:10px 14px;border-radius:8px;background:var(--pen-soft)}
-.qmeta{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
-.qtext{font-family:var(--f-display);font-size:21px;font-weight:700;line-height:1.4}
+.explain{margin-top:12px;padding:12px 14px;border-radius:var(--r-row);background:var(--accent-soft)}
+.qmeta{font-size:14px;color:var(--label-2);font-variant-numeric:tabular-nums}
+.qtext{font-size:20px;font-weight:700;line-height:1.45;margin-top:6px}
+
 /* practice */
-select,textarea{font:inherit;color:var(--ink);background:var(--sheet);border:1px solid var(--line);border-radius:8px;padding:8px 10px;width:100%}
-textarea{min-height:320px;line-height:28px;background-image:repeating-linear-gradient(to bottom,transparent 0 27px,var(--line) 27px 28px);background-attachment:local;padding-top:2px;resize:vertical}
-.timer{font-family:var(--f-hand);font-size:36px;color:var(--pen);font-variant-numeric:tabular-nums;line-height:1}
+label.field{font-size:13px;font-weight:600;color:var(--label-2);margin:0 4px -14px}
+select,textarea{font:inherit;color:var(--label);background:var(--surface);border:0;border-radius:var(--r-row);padding:12px 14px;width:100%;min-height:48px}
+textarea{min-height:340px;line-height:30px;padding-top:6px;background-image:repeating-linear-gradient(to bottom,transparent 0 29px,var(--sep) 29px 30px);background-attachment:local;resize:vertical}
+.timer{font-size:34px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;line-height:1}
 .feedback{white-space:pre-wrap}
-.muted{color:var(--muted)}
+.muted{color:var(--label-2)}
 .small{font-size:14px}
-@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 
-<header class="top">
-  <div class="wrap">
-    <h1>חזרה למבחן בספרות<small>יב10 · אנטיגונה + יגון, צפירה, האדונית והרוכל · יום ראשון 8.11</small></h1>
-    <div class="count" id="countdown" aria-live="polite">–<span>ימים למבחן</span></div>
-  </div>
+<div class="ink" aria-hidden="true"></div>
+<header class="bar" id="bar">
+  <div class="wrap"><span class="bar-title" id="bar-title">בית</span><span class="bar-count" id="bar-count"></span></div>
 </header>
-<nav class="tabs" aria-label="חלקי הממשק">
-  <div class="wrap" role="tablist">
-    <button role="tab" data-view="exam">המבחן</button>
-    <button role="tab" data-view="plan">תוכנית לימוד</button>
-    <button role="tab" data-view="works">סיכומים</button>
-    <button role="tab" data-view="cards">כרטיסיות</button>
-    <button role="tab" data-view="quiz">בוחן</button>
-    <button role="tab" data-view="practice">שאלות בגרות</button>
-  </div>
-</nav>
 
 <main><div class="wrap">
 
-<!-- EXAM -->
-<section class="view" id="v-exam">
-  <div>
-    <h2>מה יהיה במבחן</h2>
-    <p class="lede">לפי ההודעה של ענבר מ־29.10. המבחן הוא חלק מציון ההגשה לבגרות (שאלון 8281).</p>
+<!-- HOME -->
+<section class="view" id="v-home">
+  <div class="large-title">
+    <h1>חזרה לספרות</h1>
+    <p class="lede">יב10 · אנטיגונה, יגון, צפירה והאדונית והרוכל</p>
+    <div class="meta-pills"><span class="pill accent" id="countdown">–</span><span class="pill">יום ראשון 8.11</span></div>
   </div>
+
+  <p class="section-label">ההתקדמות שלכם</p>
+  <div class="stat-row" id="progress-tiles"></div>
+
+  <p class="section-label">תוכנית לימוד</p>
+  <div id="plan-list" class="grid2"></div>
+  <button class="btn ghost small" id="plan-reset" style="justify-self:start">איפוס הסימונים</button>
+
+  <p class="section-label">מה יהיה במבחן</p>
   <div class="grid2">
     <div class="sheet">
       <h3>פרק א׳ · מחזה</h3>
       <p><b>אנטיגונה</b> / סופוקלס</p>
-      <p>שתי שאלות, עונים על <b>אחת</b>. בבחינה יש גם מחזה מודרני. סמנו עליו X כי לא למדנו אותו.</p>
+      <p class="muted">שתי שאלות, עונים על <b>אחת</b>. בבחינה יש גם מחזה מודרני. סמנו עליו X כי לא למדנו אותו.</p>
     </div>
     <div class="sheet">
       <h3>פרק ב׳ · סיפור קצר</h3>
       <p><b>יגון</b> / צ׳כוב · <b>צפירה</b> / אתגר קרת · <b>האדונית והרוכל</b> / ש״י עגנון</p>
-      <p>שתי שאלות, עונים על <b>אחת</b>. השאלות כלליות ("סיפור קצר שלמדת"), אז מספיק לשלוט היטב בסיפור אחד.</p>
+      <p class="muted">שתי שאלות, עונים על <b>אחת</b>. השאלות כלליות ("סיפור קצר שלמדת"), אז מספיק לשלוט היטב בסיפור אחד.</p>
     </div>
   </div>
-  <div class="stat-row" id="progress-tiles"></div>
 
-  <div class="sheet ruled">
-    <h3>איך כותבים תשובה (מהמצגת של ענבר)</h3>
+  <div class="sheet">
+    <h3>איך כותבים תשובה</h3>
+    <p class="muted small">מהמצגת של ענבר</p>
     <h4>1. מפענחים את השאלה</h4>
     <ul>
       <li>מרקר אחד על <b>מילות הוראה</b>: הסבירו, תארו, הדגימו, נמקו (מה עליי לעשות).</li>
@@ -169,7 +221,7 @@ textarea{min-height:320px;line-height:28px;background-image:repeating-linear-gra
   </div>
 
   <div class="marginal">
-    <p><strong>אסור:</strong></p>
+    <p><strong>אסור</strong></p>
     <ul>
       <li>למספר סעיפים או לכתוב רשימה או טבלה. כותבים בפסקאות: "האמצעי האמנותי הראשון הוא…, האמצעי השני הוא…".</li>
       <li>לחבר בין סעיפים כשהשאלה מחולקת לא׳ וב׳. עונים על כל סעיף בנפרד.</li>
@@ -179,24 +231,14 @@ textarea{min-height:320px;line-height:28px;background-image:repeating-linear-gra
   </div>
   <div class="inkbox">
     <p><b>מילים נרדפות שחוזרות בשאלות</b></p>
-    <p>אמצעים רטוריים = דרכי עיצוב = "כיצד הדבר מעוצב" = <b>אמצעים אמנותיים</b> (האנשה, דימוי, מוטיב, רמז מטרים, אנלוגיה, ניגוד, אירוניה…).<br>
+    <p style="margin:0">אמצעים רטוריים = דרכי עיצוב = "כיצד הדבר מעוצב" = <b>אמצעים אמנותיים</b> (האנשה, דימוי, מוטיב, רמז מטרים, אנלוגיה, ניגוד, אירוניה…).<br>
     השקפת עולם = נושא = מסר = <b>משמעות</b>.</p>
   </div>
   <div class="sheet">
-    <h3>אסטרטגיה ל־3 ימים</h3>
-    <p><b>אנטיגונה היא חובה.</b> שתי השאלות בפרק הראשון יהיו עליה. לכן היא מקבלת את רוב הזמן.</p>
-    <p><b>בסיפורים: סיפור עיקרי אחד וסיפור גיבוי אחד.</b> כדאי לבחור את <b>יגון</b> כסיפור עיקרי. במצגת של ענבר יש לו שלוש תשובות לדוגמה, והוא מתאים כמעט לכל שאלה כללית: ביקורת חברתית, מוטיב, נקודת מפנה, סיום, פתיחה, אנלוגיה. הסיפור השני (<b>צפירה</b> או <b>האדונית והרוכל</b>) הוא גיבוי למקרה שהשאלה לא מתאימה ליגון.</p>
+    <h3>אסטרטגיה</h3>
+    <p><b>אנטיגונה היא חובה.</b> שתי השאלות בפרק הראשון יהיו עליה, ולכן היא מקבלת את רוב הזמן.</p>
+    <p style="margin:0"><b>בסיפורים: סיפור עיקרי אחד וסיפור גיבוי אחד.</b> כדאי לבחור את <b>יגון</b> כסיפור העיקרי. במצגת של ענבר יש לו שלוש תשובות לדוגמה, והוא מתאים כמעט לכל שאלה כללית. <b>צפירה</b> או <b>האדונית והרוכל</b> הם גיבוי.</p>
   </div>
-</section>
-
-<!-- PLAN -->
-<section class="view" id="v-plan" hidden>
-  <div>
-    <h2>תוכנית לימוד</h2>
-    <p class="lede">סמנו מה עשיתם. הסימונים נשמרים בדפדפן הזה.</p>
-  </div>
-  <div id="plan-list" class="grid2"></div>
-  <button class="btn ghost" id="plan-reset" style="justify-self:start">איפוס הסימונים</button>
 </section>
 
 <!-- WORKS -->
@@ -243,7 +285,7 @@ textarea{min-height:320px;line-height:28px;background-image:repeating-linear-gra
     <h2>שאלות בגרות לתרגול</h2>
     <p class="lede">בחרו שאלה וכתבו תשובה מלאה עם טיימר. אחר כך פתחו את שלד התשובה ובדקו מה חסר לכם. הטיוטה נשמרת בדפדפן.</p>
   </div>
-  <label class="small muted" for="pq-select">שאלה</label>
+  <label class="field" for="pq-select">שאלה</label>
   <select id="pq-select"></select>
   <div class="sheet" id="pq-box"></div>
   <div class="row">
@@ -253,7 +295,7 @@ textarea{min-height:320px;line-height:28px;background-image:repeating-linear-gra
       <button class="btn ghost" id="timer-reset">איפוס</button>
     </div>
   </div>
-  <label class="small muted" for="pq-answer">התשובה שלכם</label>
+  <label class="field" for="pq-answer">התשובה שלכם</label>
   <textarea id="pq-answer" placeholder="מתחילים בפתיחה: שם היצירה, שם היוצר, הנושא, התוכן והסיום…"></textarea>
   <div class="row">
     <span class="qmeta" id="wordcount">0 מילים</span>
@@ -267,6 +309,14 @@ textarea{min-height:320px;line-height:28px;background-image:repeating-linear-gra
 </section>
 
 </div></main>
+<div class="edge-fade" aria-hidden="true"></div>
+<nav class="tabbar glass" aria-label="ניווט ראשי" role="tablist">
+  <button role="tab" data-view="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 3 10.4V21h6.2v-6h5.6v6H21V10.4z"/></svg>בית</button>
+  <button role="tab" data-view="works"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5A1.5 1.5 0 0 1 6.5 2H20v15H6.5A2.5 2.5 0 0 0 5 17.5zM6.5 18.5H20V22H6.5a1.75 1.75 0 0 1 0-3.5z"/></svg>סיכומים</button>
+  <button role="tab" data-view="cards"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2h11a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM3 6.5V19a3 3 0 0 0 3 3h10.5v-1.8H6A1.2 1.2 0 0 1 4.8 19V6.5z"/></svg>כרטיסיות</button>
+  <button role="tab" data-view="quiz"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm-1.3 14.3-4.4-4.4 1.5-1.5 2.9 2.9 6.1-6.1 1.5 1.5z"/></svg>בוחן</button>
+  <button role="tab" data-view="practice"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17.3V21h3.7L17.8 9.9l-3.7-3.7zM20.7 7a1 1 0 0 0 0-1.4l-2.3-2.3a1 1 0 0 0-1.4 0l-1.8 1.8 3.7 3.7z"/></svg>תרגול</button>
+</nav>
 
 <script>
 // ---------- storage helpers ----------
@@ -732,29 +782,30 @@ const PLAN = [
 
 // ---------- countdown ----------
 (function(){
-  const exam = new Date(2026,10,8,8,0,0);
   const now = new Date();
-  const days = Math.ceil((new Date(2026,10,8) - new Date(now.getFullYear(),now.getMonth(),now.getDate()))/86400000);
-  const c = $('#countdown');
-  if(days > 1) c.innerHTML = days + '<span>ימים למבחן</span>';
-  else if(days === 1) c.innerHTML = 'מחר<span>המבחן</span>';
-  else if(days === 0) c.innerHTML = 'היום<span>בהצלחה!</span>';
-  else c.innerHTML = '✓<span>המבחן עבר</span>';
+  const days = Math.round((new Date(2026,10,8) - new Date(now.getFullYear(),now.getMonth(),now.getDate()))/86400000);
+  const t = days > 1 ? `עוד ${days} ימים למבחן` : days === 1 ? 'המבחן מחר' : days === 0 ? 'המבחן היום · בהצלחה' : 'המבחן עבר';
+  $('#countdown').textContent = t; $('#bar-count').textContent = t;
 })();
 
 // ---------- tabs / routing ----------
-const VIEWS = ['exam','plan','works','cards','quiz','practice'];
+const VIEWS = ['home','works','cards','quiz','practice'];
+const TITLES = {home:'בית', works:'סיכומים', cards:'כרטיסיות', quiz:'בוחן', practice:'תרגול'};
 function show(v){
-  if(!VIEWS.includes(v)) v = 'exam';
+  if(v === 'exam' || v === 'plan' || !VIEWS.includes(v)) v = 'home';
   VIEWS.forEach(n => { $('#v-'+n).hidden = n !== v; });
-  document.querySelectorAll('nav.tabs button').forEach(b => b.setAttribute('aria-selected', b.dataset.view === v));
-  if(v === 'exam') renderTiles();
+  document.querySelectorAll('nav.tabbar button').forEach(b => b.setAttribute('aria-selected', b.dataset.view === v));
+  $('#bar-title').textContent = TITLES[v];
+  if(v === 'home') renderTiles();
 }
-document.querySelectorAll('nav.tabs button').forEach(b => b.addEventListener('click', () => {
+document.querySelectorAll('nav.tabbar button').forEach(b => b.addEventListener('click', () => {
   if(location.hash !== '#'+b.dataset.view) location.hash = b.dataset.view; else show(b.dataset.view);
   window.scrollTo({top:0});
 }));
 window.addEventListener('hashchange', () => show(location.hash.slice(1)));
+const bar = $('#bar');
+const onScroll = () => bar.classList.toggle('scrolled', window.scrollY > 24);
+window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
 
 // ---------- progress tiles ----------
 function renderTiles(){
@@ -768,22 +819,23 @@ function renderTiles(){
     const kn = cs.filter(c => known[c[1]]).length;
     const pct = Math.round(((s.seen ? s.right/qs : 0) * 0.5 + (cs.length ? kn/cs.length : 0) * 0.5) * 100);
     const t = el('div', {class:'stat'});
-    t.innerHTML = `<b>${WORKS[k].name}</b><small>בוחן: ${s.right}/${qs} · כרטיסיות: ${kn}/${cs.length}</small><div class="bar"><i style="width:${pct}%"></i></div>`;
+    t.innerHTML = `<b>${WORKS[k].name}</b><small>בוחן: ${s.right}/${qs} · כרטיסיות: ${kn}/${cs.length}</small><div class="meter"><i style="width:${pct}%"></i></div>`;
     box.appendChild(t);
   });
 }
 
 // ---------- plan ----------
+const ltrTimes = t => t.replace(/(\d{1,2}:\d{2}(?:–\d{1,2}:\d{2})?)/g, '<span class="time">$1</span>');
 function renderPlan(){
   const done = store.get('plan', {});
   const list = $('#plan-list'); list.innerHTML = '';
   PLAN.forEach((d, di) => {
     const s = el('div', {class:'sheet day'});
-    s.appendChild(el('h3', {}, d.day));
+    s.appendChild(el('h3', {}, ltrTimes(d.day)));
     d.items.forEach((it, ii) => {
       const id = `p${di}_${ii}`;
       const lab = el('label', {class:'check' + (done[id] ? ' done' : ''), for:id});
-      lab.innerHTML = `<input type="checkbox" id="${id}" ${done[id] ? 'checked' : ''}><span>${it}</span>`;
+      lab.innerHTML = `<input type="checkbox" id="${id}" ${done[id] ? 'checked' : ''}><span>${ltrTimes(it)}</span>`;
       lab.querySelector('input').addEventListener('change', e => {
         const cur = store.get('plan', {}); cur[id] = e.target.checked; store.set('plan', cur);
         lab.classList.toggle('done', e.target.checked);
@@ -1006,5 +1058,5 @@ ${ans}
 
 // ---------- init ----------
 renderPlan(); renderWorks(); renderCardChips(); buildDeck(); renderQuizChips(); startQuiz(); renderPracticeSelect(); renderPractice();
-show(location.hash.slice(1) || 'exam');
+show(location.hash.slice(1) || 'home');
 </script>
